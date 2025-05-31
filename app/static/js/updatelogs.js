@@ -4,7 +4,7 @@
 /* global io */
 
 /**
- * Streams the TinyPilot update logs via a SocketIO connection.
+ * Streams the DELL_S2725HS update logs via a SocketIO connection.
  * @requires socketio
  */
 export class UpdateLogsStreamer {

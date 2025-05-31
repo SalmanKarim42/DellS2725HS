@@ -1,16 +1,16 @@
 #!/bin/bash
 #
-# Install TinyPilot from a TinyPilot bundle tarball.
+# Install DELL_S2725HS from a DELL_S2725HS bundle tarball.
 #
 # Examples:
-#  sudo install-bundle /tmp/tinypilot-community-20230103T1619Z-1.8.0-74+7623988.tgz
-#  sudo install-bundle https://example.com/tinypilot-community-20230103T1619Z-1.8.0-74+7623988.tgz
+#  sudo install-bundle /tmp/DellS2725HS-community-20230103T1619Z-1.8.0-74+7623988.tgz
+#  sudo install-bundle https://example.com/DellS2725HS-community-20230103T1619Z-1.8.0-74+7623988.tgz
 #
 # This script is only for development, though unlike other dev scripts, it
-# installs on the device. Regular users should use the get-tinypilot.sh or
-# get-tinypilot-pro.sh scripts.
+# installs on the device. Regular users should use the get-DellS2725HS.sh or
+# get-DellS2725HS-pro.sh scripts.
 #
-# get-tinypilot.sh and get-tinypilot-pro.sh do not use this script because they
+# get-DellS2725HS.sh and get-DellS2725HS-pro.sh do not use this script because they
 # can't rely on it being available locally at install time.
 
 # Exit on unset variable.
@@ -29,8 +29,8 @@ fi
 print_help() {
   cat << EOF
 Usage: ${0##*/} [-h] bundle_path
-Install the specified TinyPilot bundle on the system.
-  bundle_path: Local filesystem path or URL to TinyPilot bundle.
+Install the specified DELL_S2725HS bundle on the system.
+  bundle_path: Local filesystem path or URL to DELL_S2725HS bundle.
   -h Display this help and exit.
 EOF
 }
@@ -60,17 +60,17 @@ set -x
 
 readonly BUNDLE_PATH="$1"
 
-# Historically, the TinyPilot bundle was unpacked to the device's disk, where it
+# Historically, the DELL_S2725HS bundle was unpacked to the device's disk, where it
 # persisted. Since then, we've moved to the use of a volatile RAMdisk, which
 # avoids excessive writes to the filesystem. As a result, this legacy installer
 # directory has been orphaned and is now removed as part of this script's
 # `clean_up` function.
-# https://github.com/tiny-pilot/tinypilot/issues/1357
-readonly LEGACY_INSTALLER_DIR='/opt/tinypilot-updater'
+# https://github.com/Dell-S2725HS/DellS2725HS/issues/1357
+readonly LEGACY_INSTALLER_DIR='/opt/DellS2725HS-updater'
 
 # The RAMdisk size is broadly based on the combined size of the following:
-# - The TinyPilot bundle archive
-# - The unpacked TinyPilot bundle archive, after running the bundle's `install`
+# - The DELL_S2725HS bundle archive
+# - The unpacked DELL_S2725HS bundle archive, after running the bundle's `install`
 #     script
 # - About 50 MiB of temporary files
 # - At least a 20% safety margin
@@ -85,7 +85,7 @@ AVAILABLE_MEMORY_MIB="$(free --mebi |
 readonly AVAILABLE_MEMORY_MIB
 
 # Assign a provisional installation directory for our `clean_up` function.
-INSTALLER_DIR='/mnt/tinypilot-installer'
+INSTALLER_DIR='/mnt/DellS2725HS-installer'
 
 # Remove temporary files & directories.
 clean_up() {
@@ -108,7 +108,7 @@ if (( "${AVAILABLE_MEMORY_MIB}" >= "${RAMDISK_SIZE_MIB}" )); then
   # that our goal is to reduce disk writes and not necessarily eliminate them
   # altogether, the possibility of using swap space is an acceptable compromise in
   # exchange for limiting memory usage.
-  # https://github.com/tiny-pilot/tinypilot/issues/1357
+  # https://github.com/Dell-S2725HS/DellS2725HS/issues/1357
   sudo mkdir "${INSTALLER_DIR}"
   sudo mount \
     --types tmpfs \

@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# Check that the TinyPilot scripts contain a guard against privilege escalation.
+# Check that the DELL_S2725HS scripts contain a guard against privilege escalation.
 #
 # This script enforces a pattern of ensuring that scripts which are writable by
-# the `tinypilot` user don't get executed with unnecessary root privileges.
+# the `DellS2725HS` user don't get executed with unnecessary root privileges.
 
 # Exit on first failing command.
 set -e
@@ -11,7 +11,7 @@ set -e
 # Exit on unset variable.
 set -u
 
-# Find TinyPilot scripts that don't guard against privilege escalation.
+# Find DELL_S2725HS scripts that don't guard against privilege escalation.
 MATCHES="$(grep \
   --files-without-match \
   --fixed-strings \
@@ -25,8 +25,8 @@ if [[ -n "${MATCHES}" ]]; then
   >&2 cat <<'EOF'
 if (( "${EUID}" == 0 )); then
   >&2 echo "This script doesn't require root privileges."
-  >&2 echo 'Please re-run as tinypilot:'
-  >&2 echo "  runuser tinypilot --command '$0 $*'"
+  >&2 echo 'Please re-run as DellS2725HS:'
+  >&2 echo "  runuser DellS2725HS --command '$0 $*'"
   exit 1
 fi
 EOF

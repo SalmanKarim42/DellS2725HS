@@ -1,0 +1,11 @@
+etc /
+opt /
+usr /
+VERSION opt/DellS2725HS/
+COPYRIGHT opt/DellS2725HS/
+LICENSE opt/DellS2725HS/
+README.md opt/DellS2725HS/
+requirements.txt opt/DellS2725HS/
+app opt/DellS2725HS/
+scripts opt/DellS2725HS/
+COPYRIGHT usr/share/doc/DellS2725HS/copyright

@@ -1,7 +1,7 @@
 """Manage a key file that Flask uses as a secret key.
 
 Flask and Flask extensions use the SECRET_KEY config value to securely sign
-security-sensitive tokens. In the context of TinyPilot, Flask uses the
+security-sensitive tokens. In the context of DELL_S2725HS, Flask uses the
 SECRET_KEY to sign the session cookie and the CSRF token.
 
 We persist the SECRET_KEY to the disk so that Flask's tokens stay valid across

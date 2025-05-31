@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Creates a TinyPilot installation bundle from the bundle/ folder.
+# Creates a DELL_S2725HS installation bundle from the bundle/ folder.
 #
-# You have to provide the TinyPilot Debian package and place it in the `bundle/`
+# You have to provide the DELL_S2725HS Debian package and place it in the `bundle/`
 # folder. The script fetches all other required dependencies automatically.
 
 # Exit on first error.
@@ -25,46 +25,46 @@ readonly BUNDLE_DIR='bundle'
 readonly OUTPUT_DIR='dist'
 
 # Exclude the AMD64 package from the production bundle.
-rm -f "${BUNDLE_DIR}/tinypilot"*amd64.deb
+rm -f "${BUNDLE_DIR}/DellS2725HS"*amd64.deb
 
-# Ensure that a TinyPilot Debian package exists.
-if ! ls "${BUNDLE_DIR}/tinypilot"*armhf.deb 1> /dev/null 2>&1; then
-  echo 'Failed to create bundle: no TinyPilot Debian package found.' >&2
+# Ensure that a DELL_S2725HS Debian package exists.
+if ! ls "${BUNDLE_DIR}/DellS2725HS"*armhf.deb 1> /dev/null 2>&1; then
+  echo 'Failed to create bundle: no DELL_S2725HS Debian package found.' >&2
   exit 1
 fi
 
-# Prints the TinyPilot release version as populated in the Debian package. The
+# Prints the DELL_S2725HS release version as populated in the Debian package. The
 # Debian package stores the version string in a header field of its control
-# file. The header is named: `Tinypilot-Version`.
-print_tinypilot_version() {
+# file. The header is named: `Dell-S2725HS-Version`.
+print_DellS2725HS_version() {
   # Shellcheck incorrectly warns that the `${...}` placeholder in `--showformat`
   # doesn’t expand, due to the single-quotes. The format string is not meant to
   # contain a bash variable, though, the placeholder is specific to `dpkg-deb`.
   # shellcheck disable=SC2016
   dpkg-deb \
     --show \
-    --showformat '${Tinypilot-Version}' \
-    "${BUNDLE_DIR}/tinypilot"*armhf.deb
+    --showformat '${Dell-S2725HS-Version}' \
+    "${BUNDLE_DIR}/DellS2725HS"*armhf.deb
 }
 
 # Compose bundle file name, which consists of these hyphen-separated parts:
-# 1. `tinypilot`
-# 2. The TinyPilot variant: `community` or `pro`
+# 1. `DellS2725HS`
+# 2. The DELL_S2725HS variant: `community` or `pro`
 # 3. A timestamp (which allows lexical sorting of bundles by their file names).
-# 4. The SemVer-compliant TinyPilot version.
+# 4. The SemVer-compliant DELL_S2725HS version.
 # Examples for bundle names:
-# - `tinypilot-pro-20220620T1713Z-2.4.1.tgz` (Pro)
-# - `tinypilot-community-20220620T1611Z-1.8.0-23+649a6b2.tgz` (Community)
+# - `DellS2725HS-pro-20220620T1713Z-2.4.1.tgz` (Pro)
+# - `DellS2725HS-community-20220620T1611Z-1.8.0-23+649a6b2.tgz` (Community)
 TIMESTAMP="$(date --iso-8601=minutes | sed 's/[:-]//g' | sed 's/+0000/Z/g')"
 readonly TIMESTAMP
-TINYPILOT_VERSION="$(print_tinypilot_version)"
-readonly TINYPILOT_VERSION
-readonly TINYPILOT_VARIANT='community'
-readonly BUNDLE_FILENAME="tinypilot-${TINYPILOT_VARIANT}-${TIMESTAMP}-${TINYPILOT_VERSION}.tgz"
+DELLS2725HS_VERSION="$(print_DellS2725HS_version)"
+readonly DELLS2725HS_VERSION
+readonly DELLS2725HS_VARIANT='community'
+readonly BUNDLE_FILENAME="DellS2725HS-${DELLS2725HS_VARIANT}-${TIMESTAMP}-${DELLS2725HS_VERSION}.tgz"
 
 # Download Janus Bullseye Backports Debian package.
 # Note: before bumping the Janus package version, be sure to compare our Janus
-# systemd config file (debian-pkg/usr/share/tinypilot/janus.service) to that of
+# systemd config file (debian-pkg/usr/share/DellS2725HS/janus.service) to that of
 # upstream and verify that the diff is the same as before.
 wget \
   --directory-prefix="${BUNDLE_DIR}" \
@@ -73,7 +73,7 @@ wget \
 # Download uStreamer Debian package.
 wget \
   --directory-prefix="${BUNDLE_DIR}" \
-  https://github.com/tiny-pilot/ustreamer-debian/releases/download/6.36-20250505185120/ustreamer_6.36-20250505185120_armhf.deb
+  https://github.com/Dell-S2725HS/ustreamer-debian/releases/download/6.36-20250505185120/ustreamer_6.36-20250505185120_armhf.deb
 
 # Download yq binary
 wget \

@@ -1,4 +1,4 @@
--- Create a table for storing TinyPilot license keys.
+-- Create a table for storing DELL_S2725HS license keys.
 
 CREATE TABLE IF NOT EXISTS licenses(
     id INTEGER PRIMARY KEY,

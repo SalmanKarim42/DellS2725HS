@@ -27,9 +27,9 @@
   </style>
 
   <div id="prompt">
-    <h3>Shut Down TinyPilot Device?</h3>
+    <h3>Shut Down DELL_S2725HS Device?</h3>
     <p>
-      Note that this will shut down <strong>TinyPilot</strong>, not the machine
+      Note that this will shut down <strong>DELL_S2725HS</strong>, not the machine
       to which it is attached.
     </p>
     <button id="confirm-shutdown" class="btn-danger" type="button">
@@ -42,12 +42,12 @@
   </div>
 
   <div id="restarting">
-    <h3>Restarting TinyPilot Device</h3>
+    <h3>Restarting DELL_S2725HS Device</h3>
     <progress-spinner></progress-spinner>
   </div>
 
   <div id="shutting-down">
-    <h3>Shutting Down TinyPilot Device</h3>
+    <h3>Shutting Down DELL_S2725HS Device</h3>
     <progress-spinner></progress-spinner>
   </div>
 
@@ -143,14 +143,14 @@
               if (restart) {
                 this.dispatchEvent(
                   new DialogFailedEvent({
-                    title: "Failed to Restart TinyPilot Device",
+                    title: "Failed to Restart DELL_S2725HS Device",
                     details: error,
                   })
                 );
               } else {
                 this.dispatchEvent(
                   new DialogFailedEvent({
-                    title: "Failed to Shut Down TinyPilot Device",
+                    title: "Failed to Shut Down DELL_S2725HS Device",
                     details: error,
                   })
                 );

@@ -9,7 +9,7 @@ cli_blueprint = Blueprint('cli', __name__)
 
 @cli_blueprint.cli.command('streaming-mode')
 def streaming_mode():
-    """Prints TinyPilot's preferred video streaming mode, either H264 or MJPEG.
+    """Prints DELL_S2725HS's preferred video streaming mode, either H264 or MJPEG.
 
     Note: this doesn't represent the currently active video streaming mode
     because H264 can fail and fall back to MJPEG.

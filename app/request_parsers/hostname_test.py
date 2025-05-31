@@ -35,11 +35,11 @@ class HostnameValidationTest(unittest.TestCase):
 
     def test_rejects_hostnames_with_invalid_characters(self):
         with self.assertRaises(errors.InvalidHostnameError):
-            hostname.parse_hostname(make_mock_request({'hostname': 'TINYPILOT'
+            hostname.parse_hostname(make_mock_request({'hostname': 'DELLS2725HS'
                                                       }))
         with self.assertRaises(errors.InvalidHostnameError):
             hostname.parse_hostname(
-                make_mock_request({'hostname': 'tinypilot***'}))
+                make_mock_request({'hostname': 'DellS2725HS***'}))
         with self.assertRaises(errors.InvalidHostnameError):
             hostname.parse_hostname(
                 make_mock_request({'hostname': 'tiny.pilot'}))

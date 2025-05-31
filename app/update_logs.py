@@ -6,7 +6,7 @@ import flask_socketio
 
 import threads
 
-_READ_SCRIPT_PATH = '/opt/tinypilot-privileged/scripts/read-update-log'
+_READ_SCRIPT_PATH = '/opt/DellS2725HS-privileged/scripts/read-update-log'
 logger = logging.getLogger(__name__)
 
 
@@ -19,7 +19,7 @@ class UpdateLogsReadError(Error):
 
 
 def read():
-    """Read the TinyPilot update logs.
+    """Read the DELL_S2725HS update logs.
 
     Args:
         None
@@ -55,7 +55,7 @@ def get_new_logs(prev_logs, next_logs):
 
 
 class Namespace(flask_socketio.Namespace):
-    """Stream the TinyPilot update logs via SocketIO.
+    """Stream the DELL_S2725HS update logs via SocketIO.
 
     Once a `start` event is receieved within this SocketIO Namespace, the newly
     written update logs are streamed to all connected clients via a `logs`

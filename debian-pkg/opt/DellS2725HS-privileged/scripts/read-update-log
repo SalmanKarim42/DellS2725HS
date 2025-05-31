@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Reads the DellS2725HS-updater systemd log and cuts out the junk content.
+
+# Exit on first error.
+set -e
+
+# Treat undefined environment variables as errors.
+set -u
+
+if (( "${EUID}" != 0 )); then
+  echo "This script requires root privileges." >&2
+  echo "Please re-run with sudo:" >&2
+  echo "  sudo ${0}" >&2
+  exit 1
+fi
+
+journalctl -u DellS2725HS-updater \
+  | grep DellS2725HS-update-svc \
+  | sed -E 's/^.*DellS2725HS-update-svc\[[0-9]+\]: //g'

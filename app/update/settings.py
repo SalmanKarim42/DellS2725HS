@@ -1,7 +1,7 @@
-"""Manages a TinyPilot update settings file.
+"""Manages a DELL_S2725HS update settings file.
 
 This module is a wrapper around the YAML settings file (settings.yml) that
-allows TinyPilot code to modify it cleanly.
+allows DELL_S2725HS code to modify it cleanly.
 
 Typical usage example:
 
@@ -23,7 +23,7 @@ processed throughout the update process initially. Over time, we also added a
 few other settings, which are independent of the update context.
 As of mid 2023, we have finished migrating away from Ansible, so there is no
 hard requirement for us to continue using the settings.yml file, except for
-backwards compatibility with existing TinyPilot installations.
+backwards compatibility with existing DELL_S2725HS installations.
 """
 
 import yaml
@@ -68,12 +68,12 @@ a9c081406140271f80f07138164038c0
 0000000000000000000000000000008e
 """.strip()
 
-# Define default values for user-configurable TinyPilot settings. The YAML data
+# Define default values for user-configurable DELL_S2725HS settings. The YAML data
 # in _SETTINGS_FILE_PATH take precedence over these defaults.
 _DEFAULTS = {
-    'tinypilot_keyboard_interface': '/dev/hidg0',
-    'tinypilot_mouse_interface': '/dev/hidg1',
-    'tinypilot_external_port': 80,
+    'DellS2725HS_keyboard_interface': '/dev/hidg0',
+    'DellS2725HS_mouse_interface': '/dev/hidg1',
+    'DellS2725HS_external_port': 80,
     'ustreamer_desired_fps': video_service.DEFAULT_MJPEG_FRAME_RATE,
     'ustreamer_edid': _DEFAULT_TC358743_EDID,
     'ustreamer_quality': video_service.DEFAULT_MJPEG_QUALITY,
@@ -151,7 +151,7 @@ class Settings:
 
 
 def load():
-    """Retrieves the current TinyPilot update settings.
+    """Retrieves the current DELL_S2725HS update settings.
 
     Parses the contents of settings file and generates a settings object that
     represents the values in the settings file.

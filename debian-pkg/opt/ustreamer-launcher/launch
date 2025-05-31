@@ -8,7 +8,7 @@
 # The launcher reads config files in /opt/ustreamer-launcher/configs.d/. The
 # base config file is /opt/ustreamer-launcher/configs.d/000-defaults.yml. Other
 # clients can override the defaults by placing additional files in the configs.d
-# folder like 100-tinypilot.yml.
+# folder like 100-DellS2725HS.yml.
 #
 # The launcher evaluates YAML files in lexicographic order. In the case of
 # conflicting settings, later config files override earlier files (e.g.,
@@ -88,7 +88,7 @@ append_arg_if_defined() {
 # Apply hardcoded settings that are not configurable via YAML.
 USTREAMER_ARGS+=('--port' '48001')
 USTREAMER_ARGS+=('--persistent')
-USTREAMER_ARGS+=('--h264-sink' 'tinypilot::ustreamer::h264')
+USTREAMER_ARGS+=('--h264-sink' 'DellS2725HS::ustreamer::h264')
 USTREAMER_ARGS+=('--h264-sink-mode' '777')
 USTREAMER_ARGS+=('--h264-sink-rm')
 

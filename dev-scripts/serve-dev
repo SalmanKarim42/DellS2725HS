@@ -11,11 +11,11 @@ set -x
 # Exit on unset variable.
 set -u
 
-# Serve TinyPilot in dev mode.
+# Serve DELL_S2725HS in dev mode.
 HOST=0.0.0.0 \
   PORT=${PORT:=8000} \
   DEBUG=1 \
   USE_RELOADER=1 \
   APP_SETTINGS_FILE=../dev_app_settings.cfg \
-  TINYPILOT_HOME_DIR="${TINYPILOT_HOME_DIR:-$(realpath ~)}" \
+  DELLS2725HS_HOME_DIR="${DELLS2725HS_HOME_DIR:-$(realpath ~)}" \
   ./app/main.py

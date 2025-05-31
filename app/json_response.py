@@ -26,7 +26,7 @@ def error(original_error):
         - message: A string with the error message.
         - code: Either a string with a unique error code as string, or `null`.
             This property is only set for errors that are handled explicitly by
-            the TinyPilot frontend.
+            the DELL_S2725HS frontend.
     """
     code = getattr(original_error, 'code', None)
     return flask.jsonify({

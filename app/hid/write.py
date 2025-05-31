@@ -29,7 +29,7 @@ def write_to_hid_interface(hid_path, buffer):
     if logger.getEffectiveLevel() == logging.DEBUG:
         logger.debug_sensitive('writing to HID interface %s: %s', hid_path,
                                ' '.join([f'{x:#04x}' for x in buffer]))
-    # Writes can hang, for example, when TinyPilot is attempting to write to the
+    # Writes can hang, for example, when DELL_S2725HS is attempting to write to the
     # mouse interface, but the target system has no GUI. To avoid locking up the
     # main server process, perform the HID interface I/O in a separate process.
     try:

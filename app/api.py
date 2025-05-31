@@ -24,7 +24,7 @@ api_blueprint = flask.Blueprint('api', __name__, url_prefix='/api')
 
 @api_blueprint.route('/debugLogs', methods=['GET'])
 def debug_logs_get():
-    """Returns the TinyPilot debug log as a plaintext HTTP response.
+    """Returns the DELL_S2725HS debug log as a plaintext HTTP response.
 
     Returns:
         A text/plain response with the content of the logs in the response body.
@@ -86,9 +86,9 @@ def update_get():
 
 @api_blueprint.route('/update', methods=['PUT'])
 def update_put():
-    """Initiates job to update TinyPilot to the latest version available.
+    """Initiates job to update DELL_S2725HS to the latest version available.
 
-    This endpoint asynchronously starts a job to update TinyPilot to the latest
+    This endpoint asynchronously starts a job to update DELL_S2725HS to the latest
     version.  API clients can then query the status of the job with GET
     /api/update to see the status of the update.
 
@@ -107,7 +107,7 @@ def update_put():
 
 @api_blueprint.route('/version', methods=['GET'])
 def version_get():
-    """Retrieves the current installed version of TinyPilot.
+    """Retrieves the current installed version of DELL_S2725HS.
 
     Returns:
         On success, a JSON data structure with the following properties:
@@ -128,7 +128,7 @@ def version_get():
 
 @api_blueprint.route('/latestRelease', methods=['GET'])
 def latest_release_get():
-    """Retrieves the latest version of TinyPilot.
+    """Retrieves the latest version of DELL_S2725HS.
 
     Returns:
         On success, a JSON data structure with the following properties:
@@ -167,7 +167,7 @@ def hostname_get():
 
         Example:
         {
-            "hostname": "tinypilot"
+            "hostname": "DellS2725HS"
         }
 
         Returns an error object on failure.
@@ -324,7 +324,7 @@ def network_wifi_disable():
 
 @api_blueprint.route('/status', methods=['GET'])
 def status_get():
-    """Checks the status of TinyPilot.
+    """Checks the status of DELL_S2725HS.
 
     This endpoint may be called from all locations, so there is no restriction
     in regards to CORS.

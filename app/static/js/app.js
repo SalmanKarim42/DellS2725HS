@@ -301,7 +301,7 @@ menuBar.addEventListener("dedicated-window-requested", () => {
     // We need to add noopener to prevent a bug on Firefox where tearing down
     // the existing page causes the browser to garbage collect resources that
     // the popup tries to access.
-    // https://github.com/tiny-pilot/tinypilot/issues/1609
+    // https://github.com/Dell-S2725HS/DellS2725HS/issues/1609
     `popup=true,noopener,width=${width},height=${height}`
   );
 

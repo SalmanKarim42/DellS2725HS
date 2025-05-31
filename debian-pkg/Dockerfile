@@ -15,17 +15,17 @@ RUN set -exu && \
 # https://docs.docker.com/build/building/multi-platform/
 ARG TARGETPLATFORM
 
-# The canonical, SemVer-compliant TinyPilot version.
-ARG TINYPILOT_VERSION
+# The canonical, SemVer-compliant DELL_S2725HS version.
+ARG DELLS2725HS_VERSION
 
 # The `PKG_VERSION` is the version of the Debian package. Debian uses its own
-# versioning scheme, which is not strictly compatible with TinyPilot’s version
+# versioning scheme, which is not strictly compatible with DELL_S2725HS’s version
 # conventions. Therefore, the package version should be a timestamp, formatted
 # `YYYYMMDDhhmmss`. That way the package manager always installs the most
-# recently built TinyPilot package.
+# recently built DELL_S2725HS package.
 ARG PKG_VERSION
 
-ARG PKG_NAME='tinypilot'
+ARG PKG_NAME='DellS2725HS'
 ARG PKG_BUILD_NUMBER='1'
 
 # Docker's platform names don't match Debian's platform names, so we translate
@@ -62,7 +62,7 @@ COPY ./requirements.txt ./
 COPY ./app ./app
 COPY ./scripts ./scripts
 
-RUN echo "${TINYPILOT_VERSION}" > VERSION
+RUN echo "${DELLS2725HS_VERSION}" > VERSION
 
 WORKDIR /releases/placeholder-pkg-id/debian
 
@@ -72,7 +72,7 @@ RUN set -exu && \
 Source: ${PKG_NAME}
 Section: net
 Priority: optional
-Maintainer: TinyPilot Support <support@tinypilotkvm.com>
+Maintainer: DELL_S2725HS Support <support@DELL_S2725HS.com>
 Build-Depends: debhelper (>= 11)
 
 Package: ${PKG_NAME}
@@ -80,16 +80,16 @@ Architecture: ${PKG_ARCH}
 Depends: \${shlibs:Depends}, adduser, janus, nginx, python3, python3-pip, python3-venv, sudo, ustreamer
 Homepage: https://tinypilotkvm.com
 Description: Simple, easy-to-use KVM over IP
-XBS-Tinypilot-Version: ${TINYPILOT_VERSION}
+XBS-Dell-S2725HS-Version: ${DELLS2725HS_VERSION}
 EOF
 
 RUN set -exu && \
     cat >changelog <<EOF
-tinypilot (${PKG_VERSION}) bullseye; urgency=medium
+DellS2725HS (${PKG_VERSION}) bullseye; urgency=medium
 
-  * Latest TinyPilot release.
+  * Latest DELL_S2725HS release.
 
- -- TinyPilot Support <support@tinypilotkvm.com>  $(date '+%a, %d %b %Y %H:%M:%S %z')
+ -- DELL_S2725HS Support <support@DELL_S2725HS.com>  $(date '+%a, %d %b %Y %H:%M:%S %z')
 EOF
 
 # Rename the placeholder release directory to the final package ID.

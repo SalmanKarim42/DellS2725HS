@@ -12,4 +12,4 @@
 
 # This note is aimed at the dev team so we don't need to include it in
 # production packages.
-./debian-pkg/opt/tinypilot-privileged/README.md
+./debian-pkg/opt/DellS2725HS-privileged/README.md

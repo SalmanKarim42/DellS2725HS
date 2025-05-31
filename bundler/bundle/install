@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Installs TinyPilot and all dependencies.
+# Installs DELL_S2725HS and all dependencies.
 
 # Exit on first error.
 set -e
@@ -15,7 +15,6 @@ set -x
 if grep -q "boot=overlay" /proc/cmdline ; then
   echo 'The read-only filesystem is enabled.' >&2
   echo 'Disable the read-only filesystem before proceeding.' >&2
-  echo 'See https://tinypilotkvm.com/faq/read-only-filesystem for details.' >&2
   exit 1
 fi
 
@@ -28,7 +27,7 @@ else
   # Install only on Raspberry Pi 4 Model B.
   if ! grep --quiet "^Model\s*: Raspberry Pi 4 Model B" /proc/cpuinfo ; then
     echo 'You are trying to install on unsupported hardware.' >&2
-    echo 'Visit https://github.com/tiny-pilot/tinypilot/ for more details.' >&2
+    echo 'Visit https://github.com/Dell-S2725HS/DellS2725HS/ for more details.' >&2
     exit 1
   fi
 
@@ -38,23 +37,23 @@ else
   # open-source project). Similarly, the the 64-bit version of the Raspberry Pi
   # operating system is based on Debian and its distro ID would be "Debian".
   if [[ "$(lsb_release --id --short)" != 'Raspbian' ]]; then
-    echo "TinyPilot currently only supports the 32-bit version of Raspberry Pi OS 11 \"Bullseye\"." >&2
-    echo "To install TinyPilot, you'll need Raspberry Pi OS 11 \"Bullseye\" (32-bit)." >&2
+    echo "DELL_S2725HS currently only supports the 32-bit version of Raspberry Pi OS 11 \"Bullseye\"." >&2
+    echo "To install DELL_S2725HS, you'll need Raspberry Pi OS 11 \"Bullseye\" (32-bit)." >&2
     exit 1
   fi
 
   # Prevent installation on OS versions lower than Raspberry Pi OS 11 "Bullseye".
   if (( "$(lsb_release --release --short)" < 11 )); then
-    echo "TinyPilot no longer supports Raspberry Pi OS 10 \"Buster\" or lower." >&2
-    echo "To install TinyPilot, you'll need to upgrade your operating system to Raspberry Pi OS 11 \"Bullseye\" (32-bit)." >&2
+    echo "DELL_S2725HS no longer supports Raspberry Pi OS 10 \"Buster\" or lower." >&2
+    echo "To install DELL_S2725HS, you'll need to upgrade your operating system to Raspberry Pi OS 11 \"Bullseye\" (32-bit)." >&2
     exit 1
   fi
 
   # Prevent installation on Raspberry Pi OS 12 "Bookworm".
   if (( "$(lsb_release --release --short)" > 11 )); then
-    echo "TinyPilot is not yet compatible with Raspberry Pi OS 12 \"Bookworm\"." >&2
-    echo "You can track our progress by visiting https://github.com/tiny-pilot/tinypilot/issues/1668" >&2
-    echo "To install TinyPilot, you'll need to downgrade your operating system to Raspberry Pi OS 11 \"Bullseye\" (32-bit)." >&2
+    echo "DELL_S2725HS is not yet compatible with Raspberry Pi OS 12 \"Bookworm\"." >&2
+    echo "You can track our progress by visiting https://github.com/Dell-S2725HS/DellS2725HS/issues/1668" >&2
+    echo "To install DELL_S2725HS, you'll need to downgrade your operating system to Raspberry Pi OS 11 \"Bullseye\" (32-bit)." >&2
     exit 1
   fi
 fi
@@ -67,18 +66,18 @@ readonly JANUS_DEBIAN_PACKAGE
 USTREAMER_DEBIAN_PACKAGE="$(ls ustreamer*.deb)"
 readonly USTREAMER_DEBIAN_PACKAGE
 
-# Get the filename of the TinyPilot Debian package.
-TINYPILOT_DEBIAN_PACKAGE="$(ls tinypilot*.deb)"
-readonly TINYPILOT_DEBIAN_PACKAGE
+# Get the filename of the DELL_S2725HS Debian package.
+DELLS2725HS_DEBIAN_PACKAGE="$(ls DellS2725HS*.deb)"
+readonly DELLS2725HS_DEBIAN_PACKAGE
 
 # Update apt package index files, allowing the apt repos to change suite name.
-# See https://github.com/tiny-pilot/tinypilot/issues/764
+# See https://github.com/Dell-S2725HS/DellS2725HS/issues/764
 apt-get update --allow-releaseinfo-change-suite
 
 apt-get install -y \
   "./${JANUS_DEBIAN_PACKAGE}" \
   "./${USTREAMER_DEBIAN_PACKAGE}" \
-  "./${TINYPILOT_DEBIAN_PACKAGE}"
+  "./${DELLS2725HS_DEBIAN_PACKAGE}"
 
 # Install yq.
 mv yq /usr/bin/yq

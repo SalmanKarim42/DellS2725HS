@@ -199,10 +199,10 @@ function normalizeWheelDelta(delta) {
 }
 
 /**
- * Parses a standard JavaScript mouse event into a TinyPilot-specific object
+ * Parses a standard JavaScript mouse event into a DELL_S2725HS-specific object
  * containing information about the mouse event.
  *
- * The mouse event data in TinyPilot-specific format.
+ * The mouse event data in DELL_S2725HS-specific format.
  *
  * @typedef {Object} MouseEventData
  * @property {number} buttons - A bitmask representing which mouse buttons are

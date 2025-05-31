@@ -30,7 +30,7 @@ _VERSION_FILE = './VERSION'
 
 @dataclasses.dataclass
 class UpdateInfo:
-    """Metadata about a TinyPilot update package.
+    """Metadata about a DELL_S2725HS update package.
 
     This data structure reflects the response of Gatekeeper’s
     `/available-update` routes.
@@ -73,7 +73,7 @@ def local_version():
 
 
 def latest_version():
-    """Requests the latest release info from the TinyPilot Gatekeeper REST API.
+    """Requests the latest release info from the DELL_S2725HS Gatekeeper REST API.
 
     Returns:
         An UpdateInfo object, containing the information about the release.
@@ -91,7 +91,7 @@ def latest_version():
         if (isinstance(e.reason, ssl.SSLCertVerificationError) and
                 e.reason.verify_message == 'certificate is not yet valid'):
             raise CertificateNotYetValidError(
-                'Server\'s certificate start date is ahead of TinyPilot\'s'
+                'Server\'s certificate start date is ahead of DELL_S2725HS\'s'
                 f' system date of {date.today():%Y-%m-%d}. Check the system'
                 f' date to ensure that it is accurate. {e}') from e
         raise VersionRequestError(

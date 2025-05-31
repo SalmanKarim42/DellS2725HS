@@ -2,13 +2,13 @@ from setuptools import find_packages
 from setuptools import setup
 
 setup(
-    name="TinyPilot",
+    name="DELL_S2725HS",
     version="0.0.1",
-    url="https://github.com/tiny-pilot/tinypilot",
+    url="https://github.com/Dell-S2725HS/DellS2725HS",
     author="Michael Lynch",
     description="Use your Raspberry Pi as a browser-based KVM.",
     packages=find_packages(),
     include_package_data=True,
     install_requires=["eventlet", "Flask", "Flask-SocketIO", "Flask-WTF"],
-    entry_points={"console_scripts": ["tinypilot = app.main:main"]},
+    entry_points={"console_scripts": ["DellS2725HS = app.main:main"]},
 )

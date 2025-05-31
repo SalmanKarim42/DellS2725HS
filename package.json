@@ -1,5 +1,5 @@
 {
-  "name": "tinypilot",
+  "name": "DellS2725HS",
   "type": "module",
   "devDependencies": {
     "@playwright/test": "1.35.1",

@@ -1,0 +1,16 @@
+[Unit]
+Description=DELL_S2725HS - RPi-based virtual KVM
+BindsTo=nginx.service
+After=syslog.target network.target nginx.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=DellS2725HS
+WorkingDirectory=/opt/DellS2725HS
+ExecStart=/opt/DellS2725HS/venv/bin/python app/main.py
+Environment=APP_SETTINGS_FILE=/home/DellS2725HS/app_settings.cfg
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

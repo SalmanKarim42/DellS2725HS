@@ -1,0 +1,18 @@
+[Unit]
+Description=DELL_S2725HS updater
+After=syslog.target network.target
+
+[Service]
+Type=oneshot
+User=DellS2725HS
+WorkingDirectory=/opt/DellS2725HS
+ExecStart=/opt/DellS2725HS/venv/bin/python scripts/update-service
+Environment=PYTHONPATH=/opt/DellS2725HS/app
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=DellS2725HS-update-svc
+TimeoutSec=900
+KillSignal=SIGKILL
+
+[Install]
+WantedBy=local-fs.target

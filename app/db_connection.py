@@ -3,7 +3,7 @@ import flask
 import db.store
 import env
 
-_DB_PATH = env.abs_path_in_home_dir('tinypilot.db')
+_DB_PATH = env.abs_path_in_home_dir('DellS2725HS.db')
 
 
 def get():

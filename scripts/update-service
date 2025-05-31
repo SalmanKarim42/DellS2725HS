@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Standalone executable for running the TinyPilot updater and saving the result
+# Standalone executable for running the DELL_S2725HS updater and saving the result
 # to a file. This executable is meant to be run as a systemd one-shot service,
 # launched manually when the user requests an update.
 
@@ -58,7 +58,7 @@ def make_update_result(update_error):
 def main(_):
     root_logger = log.create_root_logger(logging.StreamHandler())
     root_logger.setLevel(logging.INFO)
-    logger.info('Starting TinyPilot update')
+    logger.info('Starting DELL_S2725HS update')
     perform_update()
 
 
@@ -66,13 +66,13 @@ if __name__ == '__main__':
     # Ensure that the script doesn't have unnecessary privileges.
     if os.geteuid() == 0:
         print("This script doesn't require root privileges.", file=sys.stderr)
-        print('Please re-run as tinypilot:', file=sys.stderr)
-        print('  runuser tinypilot --command',
+        print('Please re-run as DellS2725HS:', file=sys.stderr)
+        print('  runuser DellS2725HS --command',
               f"'{' '.join(sys.argv)}'",
               file=sys.stderr)
         sys.exit(1)
 
     parser = argparse.ArgumentParser(
-        prog='TinyPilot Update Service',
+        prog='DELL_S2725HS Update Service',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     main(parser.parse_args())

@@ -1,6 +1,6 @@
 # Mock Scripts
 
-The files in this folder are mock scripts for TinyPilot development.
+The files in this folder are mock scripts for DELL_S2725HS development.
 
 ## To enable
 

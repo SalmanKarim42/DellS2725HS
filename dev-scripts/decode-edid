@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Decode the EDID from the TinyPilot install defaults.
+# Decode the EDID from the DELL_S2725HS install defaults.
 
 # This script facilitates debugging the EDID and creates helpful logs of EDID
 # changes in CI.

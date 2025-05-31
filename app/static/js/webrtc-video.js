@@ -12,7 +12,7 @@
  * https://janus.conf.meetecho.com/docs/JS.html
  *
  * See here for a high-level overview of the control flow:
- * https://github.com/tiny-pilot/ustreamer/blob/master/docs/h264.md
+ * https://github.com/Dell-S2725HS/ustreamer/blob/master/docs/h264.md
  */
 
 // Suppress ESLint warnings about undefined variables.
@@ -36,8 +36,8 @@ const config = {
   // The number of seconds within which the watch request can be retried.
   watchRequestRetryTimeoutSeconds: 60,
 
-  stunServer: window.TINYPILOT_JANUS_STUN_SERVER,
-  stunPort: window.TINYPILOT_JANUS_STUN_PORT,
+  stunServer: window.DELLS2725HS_JANUS_STUN_SERVER,
+  stunPort: window.DELLS2725HS_JANUS_STUN_PORT,
 };
 
 // Initialize library.
@@ -82,7 +82,7 @@ function attachToJanusPlugin() {
 
   janus.attach({
     plugin: "janus.plugin.ustreamer",
-    opaqueId: "tinypilot-" + Janus.randomString(8),
+    opaqueId: "DellS2725HS-" + Janus.randomString(8),
 
     /**
      * This callback is triggered when the ICE state for the PeerConnection

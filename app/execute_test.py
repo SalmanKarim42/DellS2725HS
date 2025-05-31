@@ -22,7 +22,7 @@ import execute
 # [1] https://github.com/python/cpython/commit/17a5588740b3d126d546ad1a13bdac4e028e6d50
 # [2] https://docs.python.org/3.9/library/multiprocessing.html#the-spawn-and-forkserver-start-methods
 # [3] https://docs.python.org/3.9/library/pickle.html#what-can-be-pickled-and-unpickled:~:text=(using%20def%2C%20not%20lambda)
-# [4] https://github.com/tiny-pilot/tinypilot/issues/1713
+# [4] https://github.com/Dell-S2725HS/DellS2725HS/issues/1713
 
 
 def do_nothing():

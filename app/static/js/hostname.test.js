@@ -6,91 +6,91 @@ describe("determineFutureOrigin", () => {
   it("returns origin by replacing old hostname with new hostname", () => {
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("https://old-tinypilot/"),
-        "old-tinypilot",
-        "new-tinypilot"
+        new URL("https://old-DellS2725HS/"),
+        "old-DellS2725HS",
+        "new-DellS2725HS"
       ),
-      "https://new-tinypilot"
+      "https://new-DellS2725HS"
     );
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("https://old-tinypilot.local/"),
-        "old-tinypilot",
-        "new-tinypilot"
+        new URL("https://old-DellS2725HS.local/"),
+        "old-DellS2725HS",
+        "new-DellS2725HS"
       ),
-      "https://new-tinypilot.local"
+      "https://new-DellS2725HS.local"
     );
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("https://old-tinypilot.domain.local/"),
-        "old-tinypilot",
-        "new-tinypilot"
+        new URL("https://old-DellS2725HS.domain.local/"),
+        "old-DellS2725HS",
+        "new-DellS2725HS"
       ),
-      "https://new-tinypilot.domain.local"
+      "https://new-DellS2725HS.domain.local"
     );
   });
   it("returns origin using only new hostname", () => {
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("https://old-tinypilot/"),
+        new URL("https://old-DellS2725HS/"),
         undefined,
-        "new-tinypilot"
+        "new-DellS2725HS"
       ),
-      "https://new-tinypilot"
+      "https://new-DellS2725HS"
     );
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("https://old-tinypilot.local/"),
+        new URL("https://old-DellS2725HS.local/"),
         undefined,
-        "new-tinypilot"
+        "new-DellS2725HS"
       ),
-      "https://new-tinypilot"
+      "https://new-DellS2725HS"
     );
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("https://old-tinypilot.domain.local/"),
+        new URL("https://old-DellS2725HS.domain.local/"),
         undefined,
-        "new-tinypilot"
+        "new-DellS2725HS"
       ),
-      "https://new-tinypilot"
+      "https://new-DellS2725HS"
     );
   });
   it("maintains port number", () => {
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("https://old-tinypilot:8080/"),
-        "old-tinypilot",
-        "new-tinypilot"
+        new URL("https://old-DellS2725HS:8080/"),
+        "old-DellS2725HS",
+        "new-DellS2725HS"
       ),
-      "https://new-tinypilot:8080"
+      "https://new-DellS2725HS:8080"
     );
   });
   it("maintains protocol", () => {
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("http://old-tinypilot/"),
-        "old-tinypilot",
-        "new-tinypilot"
+        new URL("http://old-DellS2725HS/"),
+        "old-DellS2725HS",
+        "new-DellS2725HS"
       ),
-      "http://new-tinypilot"
+      "http://new-DellS2725HS"
     );
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("ftp://old-tinypilot/"),
-        "old-tinypilot",
-        "new-tinypilot"
+        new URL("ftp://old-DellS2725HS/"),
+        "old-DellS2725HS",
+        "new-DellS2725HS"
       ),
-      "ftp://new-tinypilot"
+      "ftp://new-DellS2725HS"
     );
   });
   it("strips pathname", () => {
     assert.strictEqual(
       determineFutureOrigin(
-        new URL("http://old-tinypilot/some-path/"),
-        "old-tinypilot",
-        "new-tinypilot"
+        new URL("http://old-DellS2725HS/some-path/"),
+        "old-DellS2725HS",
+        "new-DellS2725HS"
       ),
-      "http://new-tinypilot"
+      "http://new-DellS2725HS"
     );
   });
 });

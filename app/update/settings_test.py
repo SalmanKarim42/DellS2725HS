@@ -38,7 +38,7 @@ class UpdateSettingsTest(unittest.TestCase):
     def test_as_dict_returns_default_settings_if_no_settings_file_exists(self):
         settings_dict = update.settings.load().as_dict()
         self.assertEqual('/dev/hidg0',
-                         settings_dict['tinypilot_keyboard_interface'])
+                         settings_dict['DellS2725HS_keyboard_interface'])
         self.assertEqual(9, len(settings_dict))
 
     def test_populates_empty_file_with_blank_settings(self):

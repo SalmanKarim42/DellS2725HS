@@ -1,6 +1,6 @@
 import dataclasses
 
-# USB Usage ID values for the keycodes that TinyPilot can emit to the target
+# USB Usage ID values for the keycodes that DELL_S2725HS can emit to the target
 # computer through the USB keyboard interface.
 #
 # Source: HID Usage Tables for USB, v1.21, section "10 - Keyboard/Keypad Page"

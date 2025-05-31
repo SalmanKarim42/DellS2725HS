@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Prints TinyPilot's preferred video streaming mode, either H264 or MJPEG.
+# Prints DELL_S2725HS's preferred video streaming mode, either H264 or MJPEG.
 
 # Exit on first failure.
 set -e
@@ -10,8 +10,8 @@ set -u
 
 if (( "${EUID}" == 0 )); then
   >&2 echo "This script doesn't require root privileges."
-  >&2 echo 'Please re-run as tinypilot:'
-  >&2 echo "  runuser tinypilot --command '$0 $*'"
+  >&2 echo 'Please re-run as DellS2725HS:'
+  >&2 echo "  runuser DellS2725HS --command '$0 $*'"
   exit 1
 fi
 

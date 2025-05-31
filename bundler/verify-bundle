@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Verify the integrity of the TinyPilot installation bundle.
+# Verify the integrity of the DELL_S2725HS installation bundle.
 
 # Exit script on first failure.
 set -e
@@ -11,7 +11,7 @@ set -x
 # Exit on unset variable.
 set -u
 
-BUNDLE_FILE="$(ls dist/tinypilot*.tgz)"
+BUNDLE_FILE="$(ls dist/DellS2725HS*.tgz)"
 readonly BUNDLE_FILE
 BUNDLE_DIR="$(mktemp --tmpdir=/var/tmp --directory)"
 readonly BUNDLE_DIR
@@ -42,4 +42,4 @@ if [[ ! -f install ]]; then
 fi
 
 # List Debian package contents.
-dpkg --contents tinypilot*armhf.deb
+dpkg --contents DellS2725HS*armhf.deb

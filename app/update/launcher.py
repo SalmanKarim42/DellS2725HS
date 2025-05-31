@@ -15,13 +15,13 @@ class AlreadyInProgressError(Error):
     pass
 
 
-UPDATE_SCRIPT_PATH = '/opt/tinypilot-privileged/scripts/update'
+UPDATE_SCRIPT_PATH = '/opt/DellS2725HS-privileged/scripts/update'
 
 
 def start_async():
     """Launches the update service asynchronously.
 
-    Launches the tinypilot-update systemd service in the background. If the
+    Launches the DellS2725HS-update systemd service in the background. If the
     service is already running, raises an exception.
 
     Raises:
@@ -36,4 +36,4 @@ def start_async():
     # Ignore pylint since we're not managing the child process.
     # pylint: disable=consider-using-with
     subprocess.Popen(
-        ('sudo', '/usr/sbin/service', 'tinypilot-updater', 'start'))
+        ('sudo', '/usr/sbin/service', 'DellS2725HS-updater', 'start'))

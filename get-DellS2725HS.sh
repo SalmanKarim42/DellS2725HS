@@ -157,7 +157,7 @@ strict_curl() {
 
 # Use local bundle file instead of downloading
 # TODO: Replace this with the actual path to your local bundle file
-LOCAL_BUNDLE_PATH="./debian-pkg/deb-files/DellS2725HS_1.0.0_arm64.tgz"
+LOCAL_BUNDLE_PATH="https://github.com/SalmanKarim42/DellS2725HS/blob/master/debian-pkg/deb-files/DellS2725HS_1.0.0_arm64.tgz"
 
 if [ ! -f "${LOCAL_BUNDLE_PATH}" ]; then
   set +x

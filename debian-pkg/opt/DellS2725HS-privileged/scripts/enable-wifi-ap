@@ -18,7 +18,7 @@ if (( "${EUID}" != 0 )); then
   >&2 exit 1
 fi
 
-NETWORK_NAME='TinyPilotWiFi'
+NETWORK_NAME='DellS2725HSWifi'
 NETWORK_COUNTRY='US'
 
 print_help() {

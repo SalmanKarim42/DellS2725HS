@@ -146,25 +146,28 @@ strict_curl() {
     --silent \
     --write-out '%{http_code}' \
     --output "${output_file}" \
+    --connect-timeout 10 \
+    --max-time 300 \
     "$@")"
   readonly http_code
 
-  cat "${output_file}"
+  # Don't output binary content directly
   if (( "${http_code}" < 200 || "${http_code}" > 399 )); then
+    # Only show content if there was an error
+    cat "${output_file}" >&2
     return 1
   fi
+  # Return the output file path instead of content
+  echo "${output_file}"
 }
 
 # Use local bundle file instead of downloading
-# TODO: Replace this with the actual path to your local bundle file
-BUNDLE_FILE="$(mktemp)"
-if ! strict_curl https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS-files/master/DellS2725HS_1.0.0_arm64.tgz 
-  > "${BUNDLE_FILE}"; then
+BUNDLE_FILE="$(strict_curl https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS-files/master/DellS2725HS_1.0.0_arm64.tgz)"
+if [[ $? -ne 0 ]]; then
   set +x
   >&2 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
   >&2 echo
   >&2 echo 'Failed to download tarball.'
-  >&2 cat "${BUNDLE_FILE}"
   exit 1
 fi
 readonly BUNDLE_FILE

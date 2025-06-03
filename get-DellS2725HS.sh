@@ -157,24 +157,14 @@ strict_curl() {
 
 # Use local bundle file instead of downloading
 # TODO: Replace this with the actual path to your local bundle file
-LOCAL_BUNDLE_PATH="https://github.com/SalmanKarim42/DellS2725HS/blob/master/debian-pkg/deb-files/DellS2725HS_1.0.0_arm64.tgz"
-
-if [ ! -f "${LOCAL_BUNDLE_PATH}" ]; then
-  set +x
-  >&2 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-  >&2 echo
-  >&2 echo 'Local bundle file not found at: '${LOCAL_BUNDLE_PATH}
-  >&2 echo 'Please update LOCAL_BUNDLE_PATH to point to your local bundle file'
-  exit 1
-fi
-
-# Copy local file to RAMdisk
 BUNDLE_FILE="$(mktemp)"
-if ! cp "${LOCAL_BUNDLE_PATH}" "${BUNDLE_FILE}"; then
+if ! strict_curl https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS-files/master/DellS2725HS_1.0.0_arm64.tgz 
+  > "${BUNDLE_FILE}"; then
   set +x
   >&2 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
   >&2 echo
-  >&2 echo 'Failed to copy local bundle file to RAMdisk.'
+  >&2 echo 'Failed to download tarball.'
+  >&2 cat "${BUNDLE_FILE}"
   exit 1
 fi
 readonly BUNDLE_FILE

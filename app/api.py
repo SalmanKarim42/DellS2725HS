@@ -167,7 +167,7 @@ def hostname_get():
 
         Example:
         {
-            "hostname": "DellS2725HS"
+            "hostname": "dells2725hs"
         }
 
         Returns an error object on failure.

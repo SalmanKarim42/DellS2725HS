@@ -116,7 +116,7 @@ def determine_wifi_settings():
         # We cannot read the wpa_supplicant.conf file directly, because it is
         # owned by the root user.
         config_lines = subprocess.check_output([
-            'sudo', '/opt/DellS2725HS-privileged/scripts/print-marker-sections',
+            'sudo', '/opt/dells2725hs-privileged/scripts/print-marker-sections',
             '/etc/wpa_supplicant/wpa_supplicant.conf'
         ],
                                                stderr=subprocess.STDOUT,
@@ -150,7 +150,7 @@ def enable_wifi(wifi_settings):
         NetworkError
     """
     args = [
-        'sudo', '/opt/DellS2725HS-privileged/scripts/enable-wifi', '--country',
+        'sudo', '/opt/dells2725hs-privileged/scripts/enable-wifi', '--country',
         wifi_settings.country_code, '--ssid', wifi_settings.ssid
     ]
     try:
@@ -181,7 +181,7 @@ def disable_wifi():
         # pylint: disable=consider-using-with
         subprocess.Popen([
             'sudo',
-            '/opt/DellS2725HS-privileged/scripts/disable-wifi',
+            '/opt/dells2725hs-privileged/scripts/disable-wifi',
         ])
     except subprocess.CalledProcessError as e:
         raise NetworkError(str(e.output).strip()) from e

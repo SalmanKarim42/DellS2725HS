@@ -77,7 +77,7 @@ function attachToJanusPlugin() {
 
   janus.attach({
     plugin: "janus.plugin.ustreamer",
-    opaqueId: "DellS2725HS-" + Janus.randomString(8),
+    opaqueId: "dells2725hs-" + Janus.randomString(8),
 
     /**
      * This callback is triggered when the ICE state for the PeerConnection

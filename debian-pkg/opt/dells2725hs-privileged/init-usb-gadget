@@ -51,7 +51,7 @@ echo 0x0200 > bcdUSB    # USB2
 
 mkdir -p "$USB_STRINGS_DIR"
 echo "6b65796d696d6570690" > "${USB_STRINGS_DIR}/serialnumber"
-echo "DellS2725HS" > "${USB_STRINGS_DIR}/manufacturer"
+echo "dells2725hs" > "${USB_STRINGS_DIR}/manufacturer"
 echo "Multifunction USB Device" > "${USB_STRINGS_DIR}/product"
 
 # Keyboard

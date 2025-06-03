@@ -11,7 +11,7 @@ set -x
 # Exit on unset variable.
 set -u
 
-BUNDLE_FILE="$(ls dist/DellS2725HS*.tgz)"
+BUNDLE_FILE="$(ls dist/dells2725hs*.tgz)"
 readonly BUNDLE_FILE
 BUNDLE_DIR="$(mktemp --tmpdir=/var/tmp --directory)"
 readonly BUNDLE_DIR
@@ -42,4 +42,4 @@ if [[ ! -f install ]]; then
 fi
 
 # List Debian package contents.
-dpkg --contents DellS2725HS*armhf.deb
+dpkg --contents dells2725hs*armhf.deb

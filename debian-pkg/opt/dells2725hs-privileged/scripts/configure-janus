@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Writes the main Janus config file. The config file is based on the config
-# template, and it depends on the values found in /home/DellS2725HS/settings.yml.
+# template, and it depends on the values found in /home/dells2725hs/settings.yml.
 # Note that you have to restart both the Janus and uStreamer systemd services
 # after running this script, in order to effectuate the config changes.
 
@@ -33,11 +33,11 @@ while (( "$#" > 0 )); do
 done
 
 # Generate and write config file from template.
-pushd /opt/DellS2725HS
+pushd /opt/dells2725hs
 . venv/bin/activate
-runuser DellS2725HS \
-  --command 'PYTHONPATH=/opt/DellS2725HS/app ./scripts/render-template' \
-  < /usr/share/DellS2725HS/templates/janus.jcfg.j2 \
+runuser dells2725hs \
+  --command 'PYTHONPATH=/opt/dells2725hs/app ./scripts/render-template' \
+  < /usr/share/dells2725hs/templates/janus.jcfg.j2 \
   > /etc/janus/janus.jcfg
 deactivate
 popd

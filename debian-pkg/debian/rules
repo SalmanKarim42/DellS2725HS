@@ -5,7 +5,7 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 
-export DH_VIRTUALENV_INSTALL_ROOT=/opt/DellS2725HS
+export DH_VIRTUALENV_INSTALL_ROOT=/opt/dells2725hs
 # Prevent debhelper from generating an extra package with debug symbols.
 export DEB_BUILD_OPTIONS=noddebs
 
@@ -14,8 +14,8 @@ export DEB_BUILD_OPTIONS=noddebs
 
 override_dh_installsystemd:
 	dh_installsystemd --name=load-tc358743-edid --no-start
-	dh_installsystemd --name=DellS2725HS
-	dh_installsystemd --name=DellS2725HS-updater --no-start --no-enable
+	dh_installsystemd --name=dells2725hs
+	dh_installsystemd --name=dells2725hs-updater --no-start --no-enable
 	dh_installsystemd --name=usb-gadget --no-start
 	dh_installsystemd --name=ustreamer
 
@@ -27,4 +27,4 @@ override_dh_virtualenv:
 	# manually.
 	find . -type d -name __pycache__ -prune -exec rm -rf {} \;
 	# Lintian will complain if the .gitignore stays in venv.
-	rm ./debian/DellS2725HS$(DH_VIRTUALENV_INSTALL_ROOT)/venv/.gitignore
+	rm -f ./debian/dells2725hs$(DH_VIRTUALENV_INSTALL_ROOT)/venv/.gitignore

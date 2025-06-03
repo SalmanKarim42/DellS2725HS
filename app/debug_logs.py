@@ -18,7 +18,7 @@ def collect():
     """
     try:
         return subprocess.check_output([
-            'sudo', '/opt/DellS2725HS-privileged/scripts/collect-debug-logs', '-q'
+            'sudo', '/opt/dells2725hs-privileged/scripts/collect-debug-logs', '-q'
         ])
     except subprocess.CalledProcessError as e:
         raise LogCollectionScriptFailedError(str(e)) from e

@@ -54,7 +54,7 @@ def _restart_janus():
     logger.info('Writing janus configuration...')
     try:
         subprocess.check_output(
-            ['sudo', '/opt/DellS2725HS-privileged/scripts/configure-janus'],
+            ['sudo', '/opt/dells2725hs-privileged/scripts/configure-janus'],
             stderr=subprocess.STDOUT,
             universal_newlines=True)
     except subprocess.CalledProcessError as e:

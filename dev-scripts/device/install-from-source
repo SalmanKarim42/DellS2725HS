@@ -4,8 +4,8 @@
 # system.
 #
 # This script is only for development. DELL_S2725HS Community users should use the
-# get-DellS2725HS.sh script in the directory root. DELL_S2725HS Pro users should use
-# get-DellS2725HS-pro.sh from the licensed URL.
+# get-dells2725hs.sh script in the directory root. DELL_S2725HS Pro users should use
+# get-dells2725hs-pro.sh from the licensed URL.
 
 # Exit on first failure.
 set -e
@@ -28,11 +28,11 @@ cd "${SCRIPT_DIR}/.."
 # we don't expect non-alphanumeric filenames, and the find equivalent is more
 # complex.
 # shellcheck disable=SC2012
-LATEST_DEBIAN_PACKAGE="${PWD}/$(ls -t debian-pkg/releases/DellS2725HS*.deb | head -n 1)"
+LATEST_DEBIAN_PACKAGE="${PWD}/$(ls -t debian-pkg/releases/dells2725hs*.deb | head -n 1)"
 readonly LATEST_DEBIAN_PACKAGE
 
 # Clear any previous DELL_S2725HS Debian packages in the bundle directory.
-find ./bundler/bundle/ -name 'DellS2725HS*.deb' -delete
+find ./bundler/bundle/ -name 'dells2725hs*.deb' -delete
 
 mv "${LATEST_DEBIAN_PACKAGE}" ./bundler/bundle/
 
@@ -42,7 +42,7 @@ mv "${LATEST_DEBIAN_PACKAGE}" ./bundler/bundle/
 # we don't expect non-alphanumeric filenames, and the find equivalent is more
 # complex.
 # shellcheck disable=SC2012
-LATEST_INSTALL_BUNDLE="${PWD}/$(ls -t bundler/dist/DellS2725HS*.tgz | head -n 1)"
+LATEST_INSTALL_BUNDLE="${PWD}/$(ls -t bundler/dist/dells2725hs*.tgz | head -n 1)"
 readonly LATEST_INSTALL_BUNDLE
 
 sudo ./dev-scripts/device/install-bundle "${LATEST_INSTALL_BUNDLE}"

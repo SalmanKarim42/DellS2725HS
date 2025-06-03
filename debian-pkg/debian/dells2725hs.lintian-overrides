@@ -1,0 +1,18 @@
+# Suppress complaints about third-party dependencies we don't control.
+dells2725hs: embedded-javascript-library opt/dells2725hs/venv/lib/python*/site-packages/werkzeug/debug/shared/jquery.js please use libjs-jquery
+dells2725hs: script-not-executable [opt/dells2725hs/venv/lib/python*/site-packages/greenlet/tests/test_version.py]
+dells2725hs: script-not-executable [opt/dells2725hs/venv/lib/python*/site-packages/pkg_resources/_vendor/appdirs.py]
+dells2725hs: script-not-executable [opt/dells2725hs/venv/lib/python*/site-packages/setuptools/command/easy_install.py]
+dells2725hs: embedded-library libyaml opt/dells2725hs/venv/lib/python*/site-packages/yaml/*.so
+dells2725hs: hardening-no-relro [opt/dells2725hs/venv/lib/python*/site-packages/yaml/*.so]
+
+# Lintian doesn't recognize the Python interpreter when it's within the
+# virtualenv.
+dells2725hs: unusual-interpreter /opt/dells2725hs/venv/bin/python [opt/dells2725hs/venv/bin/dotenv*]
+dells2725hs: unusual-interpreter /opt/dells2725hs/venv/bin/python [opt/dells2725hs/venv/bin/easy_install*]
+dells2725hs: unusual-interpreter /opt/dells2725hs/venv/bin/python [opt/dells2725hs/venv/bin/flask]
+dells2725hs: unusual-interpreter /opt/dells2725hs/venv/bin/python [opt/dells2725hs/venv/bin/pip*]
+dells2725hs: unusual-interpreter /opt/dells2725hs/venv/bin/python [opt/dells2725hs/venv/bin/wheel*]
+dells2725hs: unusual-interpreter python [opt/dells2725hs/venv/lib/python*/site-packages/greenlet/tests/test_version.py]
+dells2725hs: unusual-interpreter python [opt/dells2725hs/venv/lib/python*/site-packages/pkg_resources/_vendor/appdirs.py]
+dells2725hs: unusual-interpreter python [opt/dells2725hs/venv/lib/python*/site-packages/setuptools/command/easy_install.py]

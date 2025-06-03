@@ -1,6 +1,9 @@
 {
-  "name": "DellS2725HS",
+  "name": "dells2725hs",
   "type": "module",
+  "scripts": {
+    "install-playwright": "npx playwright install-deps"
+  },
   "devDependencies": {
     "@playwright/test": "1.35.1",
     "eslint": "8.44.0",

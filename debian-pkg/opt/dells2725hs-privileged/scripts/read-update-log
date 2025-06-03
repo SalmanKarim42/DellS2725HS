@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Reads the DellS2725HS-updater systemd log and cuts out the junk content.
+# Reads the dells2725hs-updater systemd log and cuts out the junk content.
 
 # Exit on first error.
 set -e
@@ -15,6 +15,6 @@ if (( "${EUID}" != 0 )); then
   exit 1
 fi
 
-journalctl -u DellS2725HS-updater \
-  | grep DellS2725HS-update-svc \
-  | sed -E 's/^.*DellS2725HS-update-svc\[[0-9]+\]: //g'
+journalctl -u dells2725hs-updater \
+  | grep dells2725hs-update-svc \
+  | sed -E 's/^.*dells2725hs-update-svc\[[0-9]+\]: //g'

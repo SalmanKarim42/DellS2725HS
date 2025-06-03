@@ -25,10 +25,10 @@ readonly BUNDLE_DIR='bundle'
 readonly OUTPUT_DIR='dist'
 
 # Exclude the AMD64 package from the production bundle.
-rm -f "${BUNDLE_DIR}/DellS2725HS"*amd64.deb
+rm -f "${BUNDLE_DIR}/dells2725hs"*amd64.deb
 
 # Ensure that a DELL_S2725HS Debian package exists.
-if ! ls "${BUNDLE_DIR}/DellS2725HS"*armhf.deb 1> /dev/null 2>&1; then
+if ! ls "${BUNDLE_DIR}/dells2725hs"*armhf.deb 1> /dev/null 2>&1; then
   echo 'Failed to create bundle: no DELL_S2725HS Debian package found.' >&2
   exit 1
 fi
@@ -44,27 +44,27 @@ print_DellS2725HS_version() {
   dpkg-deb \
     --show \
     --showformat '${Dell-S2725HS-Version}' \
-    "${BUNDLE_DIR}/DellS2725HS"*armhf.deb
+    "${BUNDLE_DIR}/dells2725hs"*armhf.deb
 }
 
 # Compose bundle file name, which consists of these hyphen-separated parts:
-# 1. `DellS2725HS`
+# 1. `dells2725hs`
 # 2. The DELL_S2725HS variant: `community` or `pro`
 # 3. A timestamp (which allows lexical sorting of bundles by their file names).
 # 4. The SemVer-compliant DELL_S2725HS version.
 # Examples for bundle names:
-# - `DellS2725HS-pro-20220620T1713Z-2.4.1.tgz` (Pro)
-# - `DellS2725HS-community-20220620T1611Z-1.8.0-23+649a6b2.tgz` (Community)
+# - `dells2725hs-pro-20220620T1713Z-2.4.1.tgz` (Pro)
+# - `dells2725hs-community-20220620T1611Z-1.8.0-23+649a6b2.tgz` (Community)
 TIMESTAMP="$(date --iso-8601=minutes | sed 's/[:-]//g' | sed 's/+0000/Z/g')"
 readonly TIMESTAMP
 DELLS2725HS_VERSION="$(print_DellS2725HS_version)"
 readonly DELLS2725HS_VERSION
 readonly DELLS2725HS_VARIANT='community'
-readonly BUNDLE_FILENAME="DellS2725HS-${DELLS2725HS_VARIANT}-${TIMESTAMP}-${DELLS2725HS_VERSION}.tgz"
+readonly BUNDLE_FILENAME="dells2725hs-${DELLS2725HS_VARIANT}-${TIMESTAMP}-${DELLS2725HS_VERSION}.tgz"
 
 # Download Janus Bullseye Backports Debian package.
 # Note: before bumping the Janus package version, be sure to compare our Janus
-# systemd config file (debian-pkg/usr/share/DellS2725HS/janus.service) to that of
+# systemd config file (debian-pkg/usr/share/dells2725hs/janus.service) to that of
 # upstream and verify that the diff is the same as before.
 wget \
   --directory-prefix="${BUNDLE_DIR}" \

@@ -20,7 +20,7 @@ SCRIPT_DIR="$(dirname "$0")"
 # If they're piping this script in from stdin, guess that DELL_S2725HS is
 # in the default location.
 if [[ "$SCRIPT_DIR" = "." ]]; then
-  SCRIPT_DIR="/opt/DellS2725HS"
+  SCRIPT_DIR="/opt/dells2725hs"
 fi
 readonly SCRIPT_DIR
 
@@ -45,7 +45,7 @@ if [[ "${HAS_PRO_INSTALLED}" = 1 ]]; then
     printf "Community Edition.\n\n"
     printf "You probably want to update to the latest version of DELL_S2725HS "
     printf "Pro instead:\n\n"
-    printf "  sudo /opt/DellS2725HS-privileged/scripts/update && sudo reboot\n"
+    printf "  sudo /opt/dells2725hs-privileged/scripts/update && sudo reboot\n"
     printf "\n"
     printf "If you *really* want to downgrade to DELL_S2725HS Community Edition, "
     printf "type the following:\n\n"
@@ -59,7 +59,7 @@ fi
 # persisted. Since then, we've moved to the use of a volatile RAMdisk, which
 # avoids excessive writes to the filesystem. As a result, this legacy installer
 # directory has been orphaned and is now removed as part of this script's
-readonly LEGACY_INSTALLER_DIR='/opt/DellS2725HS-updater'
+readonly LEGACY_INSTALLER_DIR='/opt/dells2725hs-updater'
 
 # The RAMdisk size is broadly based on the combined size of the following:
 # - The DELL_S2725HS bundle archive
@@ -78,7 +78,7 @@ AVAILABLE_MEMORY_MIB="$(free --mebi |
 readonly AVAILABLE_MEMORY_MIB
 
 # Assign a provisional installation directory for our `clean_up` function.
-INSTALLER_DIR='/mnt/DellS2725HS-installer'
+INSTALLER_DIR='/mnt/dells2725hs-installer'
 
 # Remove temporary files & directories.
 clean_up() {
@@ -184,7 +184,7 @@ sudo chown root:root --recursive "${INSTALLER_DIR}"
 # Remove the DELL_S2725HS Pro Debian package to avoid version conflicts with
 # the DELL_S2725HS Community Debian package.
 if [[ "${HAS_PRO_INSTALLED}" -eq 1 ]]; then
-  sudo apt-get remove DellS2725HS --yes || true
+  sudo apt-get remove dells2725hs --yes || true
 fi
 
 # Run install.

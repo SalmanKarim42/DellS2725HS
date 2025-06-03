@@ -3,13 +3,13 @@
 # Install DELL_S2725HS from a DELL_S2725HS bundle tarball.
 #
 # Examples:
-#  sudo install-bundle /tmp/DellS2725HS-community-20230103T1619Z-1.8.0-74+7623988.tgz
+#  sudo install-bundle /tmp/dells2725hs-community-20230103T1619Z-1.8.0-74+7623988.tgz
 #
 # This script is only for development, though unlike other dev scripts, it
-# installs on the device. Regular users should use the get-DellS2725HS.sh or
-# get-DellS2725HS-pro.sh scripts.
+# installs on the device. Regular users should use the get-dells2725hs.sh or
+# get-dells2725hs-pro.sh scripts.
 #
-# get-DellS2725HS.sh and get-DellS2725HS-pro.sh do not use this script because they
+# get-dells2725hs.sh and get-dells2725hs-pro.sh do not use this script because they
 # can't rely on it being available locally at install time.
 
 # Exit on unset variable.
@@ -64,7 +64,7 @@ readonly BUNDLE_PATH="$1"
 # avoids excessive writes to the filesystem. As a result, this legacy installer
 # directory has been orphaned and is now removed as part of this script's
 # `clean_up` function.
-readonly LEGACY_INSTALLER_DIR='/opt/DellS2725HS-updater'
+readonly LEGACY_INSTALLER_DIR='/opt/dells2725hs-updater'
 
 # The RAMdisk size is broadly based on the combined size of the following:
 # - The DELL_S2725HS bundle archive
@@ -83,7 +83,7 @@ AVAILABLE_MEMORY_MIB="$(free --mebi |
 readonly AVAILABLE_MEMORY_MIB
 
 # Assign a provisional installation directory for our `clean_up` function.
-INSTALLER_DIR='/mnt/DellS2725HS-installer'
+INSTALLER_DIR='/mnt/dells2725hs-installer'
 
 # Remove temporary files & directories.
 clean_up() {

@@ -14,19 +14,19 @@ class EnvTest(unittest.TestCase):
 
     def test_accepts_file_in_home_dir(self):
         file = env.abs_path_in_home_dir('file')
-        self.assertEqual('/home/DellS2725HS/file', file)
+        self.assertEqual('/home/dells2725hs/file', file)
 
     def test_accepts_folder_in_home_dir(self):
         folder = env.abs_path_in_home_dir('folder/')
-        self.assertEqual('/home/DellS2725HS/folder', folder)
+        self.assertEqual('/home/dells2725hs/folder', folder)
 
     def test_accepts_nested_path_within_home_dir(self):
         nested_path = env.abs_path_in_home_dir('nested/path')
-        self.assertEqual('/home/DellS2725HS/nested/path', nested_path)
+        self.assertEqual('/home/dells2725hs/nested/path', nested_path)
 
     def test_accepts_path_traversal_within_home_dir(self):
         nested_path = env.abs_path_in_home_dir('folder/../file')
-        self.assertEqual('/home/DellS2725HS/file', nested_path)
+        self.assertEqual('/home/dells2725hs/file', nested_path)
 
     def test_rejects_input_with_leading_slash(self):
         with self.assertRaises(ValueError):

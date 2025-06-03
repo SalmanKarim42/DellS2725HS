@@ -23,7 +23,7 @@ ARG DELLS2725HS_VERSION
 # recently built DELL_S2725HS package.
 ARG PKG_VERSION
 
-ARG PKG_NAME='DellS2725HS'
+ARG PKG_NAME='dells2725hs'
 ARG PKG_BUILD_NUMBER='1'
 
 # Docker's platform names don't match Debian's platform names, so we translate
@@ -83,7 +83,7 @@ EOF
 
 RUN set -exu && \
     cat >changelog <<EOF
-DellS2725HS (${PKG_VERSION}) bullseye; urgency=medium
+dells2725hs (${PKG_VERSION}) bullseye; urgency=medium
 
   * Latest DELL_S2725HS release.
 

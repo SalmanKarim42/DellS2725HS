@@ -1,5 +1,5 @@
 # Dynamic dependencies from dist/ folder.
-/bundle/DellS2725HS
+/bundle/dells2725hs
 /bundle/*.deb
 /bundle/yq
 

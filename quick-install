@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "This script is now DEPRECATED." >&2
-echo "Please switch to https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS/master/get-DellS2725HS.sh" >&2
+echo "Please switch to https://raw.githubusercontent.com/SalmanKarim42/dells2725hs/master/get-dells2725hs.sh" >&2
 
 curl \
   --silent \
   --show-error \
-  https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS/master/get-DellS2725HS.sh | \
+  https://raw.githubusercontent.com/SalmanKarim42/dells2725hs/master/get-dells2725hs.sh | \
     bash -

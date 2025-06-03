@@ -65,7 +65,7 @@ print_info "Writing diagnostic logs to $LOG_FILE"
 echo "Software versions" >> "${LOG_FILE}"
 
 print_info "Checking DELL_S2725HS version..."
-cd /opt/DellS2725HS && \
+cd /opt/dells2725hs && \
   printf 'DELL_S2725HS version: %s\n' "$(cat VERSION)" >> "${LOG_FILE}"
 
 print_info "Checking uStreamer version..."
@@ -108,7 +108,7 @@ print_info "Checking if filesystem is read-only..."
 print_info "Checking if SSH is enabled..."
 {
   SSH_STATUS="disabled"
-  if runuser DellS2725HS --command '/opt/DellS2725HS/scripts/is-ssh-enabled' ; then
+  if runuser dells2725hs --command '/opt/dells2725hs/scripts/is-ssh-enabled' ; then
     SSH_STATUS="enabled"
   fi
   readonly SSH_STATUS
@@ -128,7 +128,7 @@ print_info "Checking network interfaces..."
 print_info "Checking if mouse jiggler is enabled..."
 {
   MOUSE_JIGGLER_STATUS="disabled"
-  if [[ -e /etc/cron.d/DellS2725HS-mouse-jiggle ]]; then
+  if [[ -e /etc/cron.d/dells2725hs-mouse-jiggle ]]; then
     MOUSE_JIGGLER_STATUS="enabled"
   fi
   readonly MOUSE_JIGGLER_STATUS
@@ -165,7 +165,7 @@ print_info "Checking for voltage issues..."
 print_info "Checking DELL_S2725HS streaming mode..."
 {
   echo "Streaming mode"
-  echo "Selected mode: $(runuser DellS2725HS --command '/opt/DellS2725HS/scripts/streaming-mode')"
+  echo "Selected mode: $(runuser dells2725hs --command '/opt/dells2725hs/scripts/streaming-mode')"
   printf "Current mode: "
   # H264 mode is considered active when the last Janus video log line contains
   # "Memsink opened; reading frames".
@@ -181,21 +181,21 @@ print_info "Checking DELL_S2725HS streaming mode..."
 print_info "Checking DELL_S2725HS settings..."
 {
   printf "DELL_S2725HS settings.yml\n"
-  cat /home/DellS2725HS/settings.yml
+  cat /home/dells2725hs/settings.yml
   printf "\n"
 } >> "${LOG_FILE}"
 
 print_info "Checking DELL_S2725HS configuration..."
 {
   printf "DELL_S2725HS configuration\n"
-  cat /lib/systemd/system/DellS2725HS.service
+  cat /lib/systemd/system/dells2725hs.service
   printf "\n"
 } >> "${LOG_FILE}"
 
 print_info "Checking DELL_S2725HS logs..."
 {
   printf "DELL_S2725HS logs\n"
-  journalctl --unit DellS2725HS | tail --lines 200
+  journalctl --unit dells2725hs | tail --lines 200
   printf "\n"
 } >> "${LOG_FILE}"
 

@@ -5,13 +5,13 @@ set -e
 
 # If a .git directory exists, the previous version was installed with the legacy
 # installer, so wipe the install location.
-if [[ -d /opt/DellS2725HS/.git ]]; then
-  rm -rf /opt/DellS2725HS
+if [[ -d /opt/dells2725hs/.git ]]; then
+  rm -rf /opt/dells2725hs
 fi
 
 # Workaround to remove DELL_S2725HS's legacy NGINX config. We can remove this on
 # DELL_S2725HS's next checkpoint release.
 rm -f \
-  /etc/nginx/sites-enabled/DellS2725HS.conf
+  /etc/nginx/sites-enabled/dells2725hs.conf
 
 #DEBHELPER#

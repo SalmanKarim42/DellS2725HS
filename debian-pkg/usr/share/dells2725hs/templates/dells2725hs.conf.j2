@@ -1,4 +1,4 @@
-upstream DellS2725HS {
+upstream dells2725hs {
     server 127.0.0.1:48000 fail_timeout=1s max_fails=600;
 }
 upstream ustreamer {
@@ -6,7 +6,7 @@ upstream ustreamer {
 }
 upstream janus-ws {
     # The host and port must match the variables in
-    # debian-pkg/usr/share/DellS2725HS/janus.transport.websockets.jcfg
+    # debian-pkg/usr/share/dells2725hs/janus.transport.websockets.jcfg
     server 127.0.0.1:48002 fail_timeout=1s max_fails=600;
 }
 
@@ -14,9 +14,9 @@ server {
     listen {{ DellS2725HS_external_port }};
     listen [::]:{{ DellS2725HS_external_port }};
 
-    server_name DellS2725HS;
+    server_name dells2725hs;
 
-    root /opt/DellS2725HS;
+    root /opt/dells2725hs;
 
     index index.html;
 
@@ -29,7 +29,7 @@ server {
     error_page 502 /502.html;
 
     location /socket.io {
-        proxy_pass http://DellS2725HS;
+        proxy_pass http://dells2725hs;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "Upgrade";
         # Since this is a connection upgrade, we don't inherit the settings from
@@ -63,10 +63,10 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     }
     location / {
-        proxy_pass http://DellS2725HS;
+        proxy_pass http://dells2725hs;
     }
     location ~* ^/.+\.(html|js|js.map|css|woff|woff2)$ {
-        root "/opt/DellS2725HS/app/static";
+        root "/opt/dells2725hs/app/static";
 
         # We cache assets to prevent the browser from making redundant
         # requests to the same files while loading the page. (Observed on
@@ -78,6 +78,6 @@ server {
         add_header Cache-Control 'public, max-age=10s';
     }
     location ~* ^/.+\.(jpg|jpeg|png|ico)$ {
-        root "/opt/DellS2725HS/app/static";
+        root "/opt/dells2725hs/app/static";
     }
 }

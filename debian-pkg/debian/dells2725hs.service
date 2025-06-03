@@ -6,10 +6,10 @@ StartLimitIntervalSec=0
 
 [Service]
 Type=simple
-User=DellS2725HS
-WorkingDirectory=/opt/DellS2725HS
-ExecStart=/opt/DellS2725HS/venv/bin/python app/main.py
-Environment=APP_SETTINGS_FILE=/home/DellS2725HS/app_settings.cfg
+User=dells2725hs
+WorkingDirectory=/opt/dells2725hs
+ExecStart=/opt/dells2725hs/venv/bin/python app/main.py
+Environment=APP_SETTINGS_FILE=/home/dells2725hs/app_settings.cfg
 Restart=always
 
 [Install]

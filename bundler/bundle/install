@@ -66,7 +66,7 @@ USTREAMER_DEBIAN_PACKAGE="$(ls ustreamer*.deb)"
 readonly USTREAMER_DEBIAN_PACKAGE
 
 # Get the filename of the DELL_S2725HS Debian package.
-DELLS2725HS_DEBIAN_PACKAGE="$(ls DellS2725HS*.deb)"
+DELLS2725HS_DEBIAN_PACKAGE="$(ls dells2725hs*.deb)"
 readonly DELLS2725HS_DEBIAN_PACKAGE
 
 # Update apt package index files, allowing the apt repos to change suite name.

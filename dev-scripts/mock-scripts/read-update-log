@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Mock version of /opt/DellS2725HS-privileged/scripts/read-update-log
+# Mock version of /opt/dells2725hs-privileged/scripts/read-update-log
 
 # Prepend random characters, to make the caller of the `read-update-log` script
 # believe new log output had been emitted on repetitive calls.

@@ -66,8 +66,8 @@ if __name__ == '__main__':
     # Ensure that the script doesn't have unnecessary privileges.
     if os.geteuid() == 0:
         print("This script doesn't require root privileges.", file=sys.stderr)
-        print('Please re-run as DellS2725HS:', file=sys.stderr)
-        print('  runuser DellS2725HS --command',
+        print('Please re-run as dells2725hs:', file=sys.stderr)
+        print('  runuser dells2725hs --command',
               f"'{' '.join(sys.argv)}'",
               file=sys.stderr)
         sys.exit(1)

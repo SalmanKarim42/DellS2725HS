@@ -43,7 +43,7 @@ def change(new_hostname):
     """
     try:
         return subprocess.check_output([
-            'sudo', '/opt/DellS2725HS-privileged/scripts/change-hostname',
+            'sudo', '/opt/dells2725hs-privileged/scripts/change-hostname',
             new_hostname
         ],
                                        stderr=subprocess.STDOUT,

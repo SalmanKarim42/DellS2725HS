@@ -4,13 +4,13 @@ After=syslog.target network.target
 
 [Service]
 Type=oneshot
-User=DellS2725HS
-WorkingDirectory=/opt/DellS2725HS
-ExecStart=/opt/DellS2725HS/venv/bin/python scripts/update-service
-Environment=PYTHONPATH=/opt/DellS2725HS/app
+User=dells2725hs
+WorkingDirectory=/opt/dells2725hs
+ExecStart=/opt/dells2725hs/venv/bin/python scripts/update-service
+Environment=PYTHONPATH=/opt/dells2725hs/app
 StandardOutput=journal
 StandardError=journal
-SyslogIdentifier=DellS2725HS-update-svc
+SyslogIdentifier=dells2725hs-update-svc
 TimeoutSec=900
 KillSignal=SIGKILL
 

@@ -38,10 +38,10 @@ class HostnameValidationTest(unittest.TestCase):
             hostname.parse_hostname(make_mock_request({'hostname': 'DELLS2725HS'}))
         with self.assertRaises(errors.InvalidHostnameError):
             hostname.parse_hostname(
-                make_mock_request({'hostname': 'DellS2725HS***'}))
+                make_mock_request({'hostname': 'dells2725hs***'}))
         with self.assertRaises(errors.InvalidHostnameError):
             hostname.parse_hostname(
-                make_mock_request({'hostname': 'DellS2725HS.local'}))
+                make_mock_request({'hostname': 'dells2725hs.local'}))
 
     def test_rejects_localhost_as_hostname(self):
         with self.assertRaises(errors.InvalidHostnameError):

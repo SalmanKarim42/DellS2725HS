@@ -3,8 +3,8 @@
 # Exit script on first failure.
 set -e
 
-if [[ -d /opt/DellS2725HS ]] ; then
-  cd /opt/DellS2725HS
+if [[ -d /opt/dells2725hs ]] ; then
+  cd /opt/dells2725hs
   rm -rf venv
   find . \
     -type f \

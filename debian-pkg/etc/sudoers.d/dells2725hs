@@ -1,0 +1,13 @@
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/change-hostname
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/collect-debug-logs
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/configure-janus
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/disable-wifi
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/enable-wifi
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/print-marker-sections /etc/wpa_supplicant/wpa_supplicant.conf
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/read-update-log
+dells2725hs ALL=(ALL) NOPASSWD: /opt/dells2725hs-privileged/scripts/update
+dells2725hs ALL=(ALL) NOPASSWD: /sbin/shutdown
+dells2725hs ALL=(ALL) NOPASSWD: /usr/sbin/service janus restart
+dells2725hs ALL=(ALL) NOPASSWD: /usr/sbin/service dells2725hs-updater start
+dells2725hs ALL=(ALL) NOPASSWD: /usr/sbin/service ustreamer restart
+dells2725hs

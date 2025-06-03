@@ -10,8 +10,8 @@ set -u
 
 if (( "${EUID}" == 0 )); then
   >&2 echo "This script doesn't require root privileges."
-  >&2 echo 'Please re-run as DellS2725HS:'
-  >&2 echo "  runuser DellS2725HS --command '$0 $*'"
+  >&2 echo 'Please re-run as dells2725hs:'
+  >&2 echo "  runuser dells2725hs --command '$0 $*'"
   exit 1
 fi
 

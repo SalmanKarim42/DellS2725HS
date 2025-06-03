@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Mock version of /opt/DellS2725HS-privileged/scripts/print-marker-sections
+# Mock version of /opt/dells2725hs-privileged/scripts/print-marker-sections
 
 if [[ "$1" == '/etc/wpa_supplicant/wpa_supplicant.conf' ]]; then
   cat << EOF

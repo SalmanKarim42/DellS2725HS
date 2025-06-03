@@ -8,7 +8,7 @@ from find_files import find as find_files
 views_blueprint = flask.Blueprint('views', __name__, url_prefix='')
 
 # Default hostname of DELL_S2725HS device.
-_DEFAULT_HOSTNAME = 'DellS2725HS'
+_DEFAULT_HOSTNAME = 'dells2725hs'
 
 
 @views_blueprint.route('/', methods=['GET'])

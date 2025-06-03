@@ -6,4 +6,4 @@
 # Without this file, we have no way of giving users a dump logs command
 # that will work regardless of DELL_S2725HS version.
 
-sudo /opt/DellS2725HS-privileged/scripts/collect-debug-logs
+sudo /opt/dells2725hs-privileged/scripts/collect-debug-logs

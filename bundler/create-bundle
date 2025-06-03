@@ -71,11 +71,11 @@ wget \
   http://ftp.us.debian.org/debian/pool/main/j/janus/janus_1.0.1-1~bpo11+1_armhf.deb
 
 # Download uStreamer Debian package.
-# wget \
-#   --directory-prefix="${BUNDLE_DIR}" \
-#   https://github.com/Dell-S2725HS/ustreamer-debian/releases/download/6.36-20250505185120/ustreamer_6.36-20250505185120_armhf.deb
+wget \
+  --directory-prefix="${BUNDLE_DIR}" \
+  https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS-files/master/ustreamer_6.36-20250505185120_armhf.deb
 
-cp "/debian-pkg/deb-files/ustreamer_6.36-20250505185120_armhf.deb" "${BUNDLE_DIR}"
+# cp "/debian-pkg/deb-files/ustreamer_6.36-20250505185120_armhf.deb" "${BUNDLE_DIR}"
 
 # Download yq binary
 wget \

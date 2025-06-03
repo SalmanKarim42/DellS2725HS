@@ -170,14 +170,14 @@
           this._state = this._states.LOADING;
 
           try {
-            const url = await textToShareableUrl(this.getLogsText());
+            // const url = await textToShareableUrl(this.getLogsText());
             // For the displayed URL, strip the protocol prefix, to make it
             // look a bit slimmer.
-            this._elements.urlLink.textContent = url
-              .replace("http://", "")
-              .replace("https://", "");
-            this._elements.urlLink.setAttribute("href", url);
-            this._elements.urlLink.setAttribute("title", url);
+            // this._elements.urlLink.textContent = url
+            //   .replace("http://", "")
+            //   .replace("https://", "");
+            // this._elements.urlLink.setAttribute("href", url);
+            // this._elements.urlLink.setAttribute("title", url);
           } catch (error) {
             console.error("Failed to upload logs: " + error);
             // In case of failure, we just reset the button, since we cannot

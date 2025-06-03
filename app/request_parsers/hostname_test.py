@@ -14,7 +14,7 @@ def make_mock_request(json_data):
 class HostnameValidationTest(unittest.TestCase):
 
     def test_accepts_hostname_with_valid_characters(self):
-        hostname_valid = 'tiny-pilot123'
+        hostname_valid = 'DELLS2725HS'
         self.assertEqual(
             hostname_valid,
             hostname.parse_hostname(
@@ -35,19 +35,17 @@ class HostnameValidationTest(unittest.TestCase):
 
     def test_rejects_hostnames_with_invalid_characters(self):
         with self.assertRaises(errors.InvalidHostnameError):
-            hostname.parse_hostname(make_mock_request({'hostname': 'DELLS2725HS'
-                                                      }))
+            hostname.parse_hostname(make_mock_request({'hostname': 'DELLS2725HS'}))
         with self.assertRaises(errors.InvalidHostnameError):
             hostname.parse_hostname(
                 make_mock_request({'hostname': 'DellS2725HS***'}))
         with self.assertRaises(errors.InvalidHostnameError):
             hostname.parse_hostname(
-                make_mock_request({'hostname': 'tiny.pilot'}))
+                make_mock_request({'hostname': 'DellS2725HS.local'}))
 
     def test_rejects_localhost_as_hostname(self):
         with self.assertRaises(errors.InvalidHostnameError):
-            hostname.parse_hostname(make_mock_request({'hostname': 'localhost'
-                                                      }))
+            hostname.parse_hostname(make_mock_request({'hostname': 'localhost'}))
 
     def test_rejects_empty_hostname(self):
         with self.assertRaises(errors.InvalidHostnameError):

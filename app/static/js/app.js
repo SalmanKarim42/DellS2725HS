@@ -104,7 +104,7 @@ function onSocketDisconnect() {
 }
 
 /**
- * @param {KeyboardEvent} evt - https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+ * @param {KeyboardEvent} evt - 
  */
 function onKeyDown(evt) {
   if (overlayTracker.hasOverlays()) {
@@ -193,7 +193,7 @@ function sendMouseEvent(
 }
 
 /**
- * @param {KeyboardEvent} evt - https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+ * @param {KeyboardEvent} evt - 
  */
 function onKeyUp(evt) {
   const canonicalCode = keystrokeToCanonicalCode(evt);
@@ -301,7 +301,6 @@ menuBar.addEventListener("dedicated-window-requested", () => {
     // We need to add noopener to prevent a bug on Firefox where tearing down
     // the existing page causes the browser to garbage collect resources that
     // the popup tries to access.
-    // https://github.com/Dell-S2725HS/DellS2725HS/issues/1609
     `popup=true,noopener,width=${width},height=${height}`
   );
 

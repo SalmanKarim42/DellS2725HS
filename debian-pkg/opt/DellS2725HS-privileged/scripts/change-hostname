@@ -45,7 +45,6 @@ fi
 
 # Validate 'new_hostname' parameter.
 # See here for the rules:
-# https://man7.org/linux/man-pages/man7/hostname.7.html
 readonly NEW_HOSTNAME="$1"
 if ! [[ "${NEW_HOSTNAME}" =~ $VALID_HOSTNAME_PATTERN ]] \
   || [[ "${NEW_HOSTNAME}" == -* ]] \

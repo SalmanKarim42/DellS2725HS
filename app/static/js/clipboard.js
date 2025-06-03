@@ -8,7 +8,6 @@ export function copyElementTextToClipboard(element) {
   // used without HTTPS, though, so we are not really able to use the Clipboard
   // API. However, the `document.execCommand` API is deprecated, so this
   // workaround might stop to work once browsers drop support for it.
-  // See https://stackoverflow.com/a/25456308/3769045.
   const range = document.createRange();
   const selection = window.getSelection();
   range.selectNodeContents(element);

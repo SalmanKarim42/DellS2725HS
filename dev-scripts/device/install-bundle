@@ -4,7 +4,6 @@
 #
 # Examples:
 #  sudo install-bundle /tmp/DellS2725HS-community-20230103T1619Z-1.8.0-74+7623988.tgz
-#  sudo install-bundle https://example.com/DellS2725HS-community-20230103T1619Z-1.8.0-74+7623988.tgz
 #
 # This script is only for development, though unlike other dev scripts, it
 # installs on the device. Regular users should use the get-DellS2725HS.sh or
@@ -65,7 +64,6 @@ readonly BUNDLE_PATH="$1"
 # avoids excessive writes to the filesystem. As a result, this legacy installer
 # directory has been orphaned and is now removed as part of this script's
 # `clean_up` function.
-# https://github.com/Dell-S2725HS/DellS2725HS/issues/1357
 readonly LEGACY_INSTALLER_DIR='/opt/DellS2725HS-updater'
 
 # The RAMdisk size is broadly based on the combined size of the following:
@@ -108,7 +106,6 @@ if (( "${AVAILABLE_MEMORY_MIB}" >= "${RAMDISK_SIZE_MIB}" )); then
   # that our goal is to reduce disk writes and not necessarily eliminate them
   # altogether, the possibility of using swap space is an acceptable compromise in
   # exchange for limiting memory usage.
-  # https://github.com/Dell-S2725HS/DellS2725HS/issues/1357
   sudo mkdir "${INSTALLER_DIR}"
   sudo mount \
     --types tmpfs \

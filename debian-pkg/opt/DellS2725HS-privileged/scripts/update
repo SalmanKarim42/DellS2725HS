@@ -12,5 +12,5 @@ set -e
 curl \
   --silent \
   --show-error \
-  https://raw.githubusercontent.com/Dell-S2725HS/DellS2725HS/master/get-DellS2725HS.sh | \
+  https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS/refs/heads/master/get-DellS2725HS.sh?token=GHSAT0AAAAAADEQNCELLANWVX2J4BTLQW6I2B4I7DQ | \
     bash -

@@ -22,7 +22,6 @@ class InvalidWheelValueError(Error):
 
 
 # JavaScript only supports 5 mouse buttons.
-# https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/buttons
 _MAX_BUTTONS = 5
 _MAX_BUTTON_STATE = pow(2, _MAX_BUTTONS) - 1
 

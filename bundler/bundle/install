@@ -27,7 +27,6 @@ else
   # Install only on Raspberry Pi 4 Model B.
   if ! grep --quiet "^Model\s*: Raspberry Pi 4 Model B" /proc/cpuinfo ; then
     echo 'You are trying to install on unsupported hardware.' >&2
-    echo 'Visit https://github.com/Dell-S2725HS/DellS2725HS/ for more details.' >&2
     exit 1
   fi
 
@@ -52,7 +51,7 @@ else
   # Prevent installation on Raspberry Pi OS 12 "Bookworm".
   if (( "$(lsb_release --release --short)" > 11 )); then
     echo "DELL_S2725HS is not yet compatible with Raspberry Pi OS 12 \"Bookworm\"." >&2
-    echo "You can track our progress by visiting https://github.com/Dell-S2725HS/DellS2725HS/issues/1668" >&2
+    echo "You can track our progress by visiting" >&2
     echo "To install DELL_S2725HS, you'll need to downgrade your operating system to Raspberry Pi OS 11 \"Bullseye\" (32-bit)." >&2
     exit 1
   fi
@@ -71,7 +70,6 @@ DELLS2725HS_DEBIAN_PACKAGE="$(ls DellS2725HS*.deb)"
 readonly DELLS2725HS_DEBIAN_PACKAGE
 
 # Update apt package index files, allowing the apt repos to change suite name.
-# See https://github.com/Dell-S2725HS/DellS2725HS/issues/764
 apt-get update --allow-releaseinfo-change-suite
 
 apt-get install -y \

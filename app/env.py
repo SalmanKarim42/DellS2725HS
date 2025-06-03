@@ -5,8 +5,7 @@ import dotenv
 
 _config = dotenv.dotenv_values('.env')
 
-GATEKEEPER_BASE_URL = _config.get('GATEKEEPER_BASE_URL',
-                                  'https://gk.tinypilotkvm.com')
+GATEKEEPER_BASE_URL = _config.get('GATEKEEPER_BASE_URL','https://gec.example.com')
 
 _DELLS2725HS_HOME_PATH = pathlib.Path(
     os.environ.get('DELLS2725HS_HOME_DIR', '/home/DellS2725HS'))

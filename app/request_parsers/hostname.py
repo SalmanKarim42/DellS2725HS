@@ -11,7 +11,6 @@ def parse_hostname(request):
 
     Parses the hostname from a JSON request and checks whether the hostname is
     valid according to the rules in
-    https://man7.org/linux/man-pages/man7/hostname.7.html
 
     Args:
         request: Flask request with the hostname field as string.

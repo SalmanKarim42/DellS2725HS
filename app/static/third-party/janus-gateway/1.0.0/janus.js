@@ -205,7 +205,6 @@ Janus.noop = function() {};
 Janus.dataChanDefaultLabel = "JanusDataChannel";
 
 // Note: in the future we may want to change this, e.g., as was
-// attempted in https://github.com/meetecho/janus-gateway/issues/1670
 Janus.endOfCandidates = null;
 
 // Stop all tracks from a given stream
@@ -335,7 +334,6 @@ Janus.init = function(options) {
 		};
 		// Detect tab close: make sure we don't loose existing onbeforeunload handlers
 		// (note: for iOS we need to subscribe to a different event, 'pagehide', see
-		// https://gist.github.com/thehunmonkgroup/6bee8941a49b86be31a787fe8f4b8cfe)
 		var iOS = ['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform) >= 0;
 		var eventName = iOS ? 'pagehide' : 'beforeunload';
 		var oldOBF = window["on" + eventName];
@@ -388,7 +386,6 @@ Janus.init = function(options) {
 			}
 		}
 		// Check if this browser supports Unified Plan and transceivers
-		// Based on https://codepen.io/anon/pen/ZqLwWV?editors=0010
 		Janus.unifiedPlan = false;
 		if(Janus.webRTCAdapter.browserDetails.browser === 'firefox' &&
 				Janus.webRTCAdapter.browserDetails.version >= 59) {
@@ -1853,7 +1850,6 @@ function Janus(gatewayCallbacks) {
 					}
 				} else {
 					// JSON.stringify doesn't work on some WebRTC objects anymore
-					// See https://code.google.com/p/chromium/issues/detail?id=467366
 					var candidate = {
 						"candidate": event.candidate.candidate,
 						"sdpMid": event.candidate.sdpMid,
@@ -2406,8 +2402,6 @@ function Janus(gatewayCallbacks) {
 				} else if(media.video === 'screen' || media.video === 'window') {
 					if(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia) {
 						// The new experimental getDisplayMedia API is available, let's use that
-						// https://groups.google.com/forum/#!topic/discuss-webrtc/Uf0SrR4uxzk
-						// https://webrtchacks.com/chrome-screensharing-getdisplaymedia/
 						constraints.video = {};
 						if(media.screenshareFrameRate) {
 							constraints.video.frameRate = media.screenshareFrameRate;
@@ -2525,7 +2519,6 @@ function Janus(gatewayCallbacks) {
 							};
 							getScreenMedia(constraints, function (err, stream) {
 								callbackUserMedia(err, stream);
-								// Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1045810
 								if (!err) {
 									var lastTime = stream.currentTime;
 									var polly = window.setInterval(function () {
@@ -2683,7 +2676,6 @@ function Janus(gatewayCallbacks) {
 		} else {
 			Janus.log("Creating offer (iceDone=" + config.iceDone + ", simulcast=" + simulcast + ")");
 		}
-		// https://code.google.com/p/webrtc/issues/detail?id=3508
 		var mediaConstraints = {};
 		if(Janus.unifiedPlan) {
 			// We can use Transceivers
@@ -2815,7 +2807,6 @@ function Janus(gatewayCallbacks) {
 		// Check if this is Firefox and we've been asked to do simulcasting
 		var sendVideo = isVideoSendEnabled(media);
 		if(sendVideo && simulcast && Janus.webRTCAdapter.browserDetails.browser === "firefox") {
-			// FIXME Based on https://gist.github.com/voluntas/088bc3cc62094730647b
 			Janus.log("Enabling Simulcasting for Firefox (RID)");
 			var sender = config.pc.getSenders().find(function(s) {return s.track && s.track.kind === "video"});
 			if(sender) {
@@ -2836,7 +2827,6 @@ function Janus(gatewayCallbacks) {
 			.then(function(offer) {
 				Janus.debug(offer);
 				// JSON.stringify doesn't work on some WebRTC objects anymore
-				// See https://code.google.com/p/chromium/issues/detail?id=467366
 				var jsep = {
 					"type": offer.type,
 					"sdp": offer.sdp
@@ -3059,7 +3049,6 @@ function Janus(gatewayCallbacks) {
 		// Check if this is Firefox and we've been asked to do simulcasting
 		var sendVideo = isVideoSendEnabled(media);
 		if(sendVideo && simulcast && Janus.webRTCAdapter.browserDetails.browser === "firefox") {
-			// FIXME Based on https://gist.github.com/voluntas/088bc3cc62094730647b
 			Janus.log("Enabling Simulcasting for Firefox (RID)");
 			var sender = config.pc.getSenders()[1];
 			Janus.log(sender);
@@ -3077,7 +3066,6 @@ function Janus(gatewayCallbacks) {
 			.then(function(answer) {
 				Janus.debug(answer);
 				// JSON.stringify doesn't work on some WebRTC objects anymore
-				// See https://code.google.com/p/chromium/issues/detail?id=467366
 				var jsep = {
 					"type": answer.type,
 					"sdp": answer.sdp
@@ -3153,7 +3141,6 @@ function Janus(gatewayCallbacks) {
 		if(!config.volume[stream])
 			config.volume[stream] = { value: 0 };
 		// Start getting the volume, if audioLevel in getStats is supported (apparently
-		// they're only available in Chrome/Safari right now: https://webrtc-stats.callstats.io/)
 		if(config.pc.getStats && (Janus.webRTCAdapter.browserDetails.browser === "chrome" ||
 				Janus.webRTCAdapter.browserDetails.browser === "safari")) {
 			if(remote && !config.remoteStream) {
@@ -3491,7 +3478,6 @@ function Janus(gatewayCallbacks) {
 	// Helper method to munge an SDP to enable simulcasting (Chrome only)
 	function mungeSdpForSimulcasting(sdp) {
 		// Let's munge the SDP to add the attributes for enabling simulcasting
-		// (based on https://gist.github.com/ggarber/a19b4c33510028b9c657)
 		var lines = sdp.split("\r\n");
 		var video = false;
 		var ssrc = [ -1 ], ssrc_fid = [ -1 ];

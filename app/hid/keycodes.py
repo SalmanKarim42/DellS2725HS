@@ -4,7 +4,6 @@ import dataclasses
 # computer through the USB keyboard interface.
 #
 # Source: HID Usage Tables for USB, v1.21, section "10 - Keyboard/Keypad Page"
-# https://usb.org/sites/default/files/hut1_21.pdf
 
 MODIFIER_LEFT_CTRL = 1 << 0
 MODIFIER_LEFT_SHIFT = 1 << 1

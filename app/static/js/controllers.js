@@ -299,7 +299,7 @@ export async function getDebugLogs() {
 }
 
 export async function textToShareableUrl(text) {
-  const baseUrl = "https://logs.tinypilotkvm.com";
+  const baseUrl = "https://leoegs.example.com";
   return fetch(baseUrl + "/", {
     method: "PUT",
     mode: "cors",

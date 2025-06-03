@@ -59,8 +59,6 @@ fi
 # persisted. Since then, we've moved to the use of a volatile RAMdisk, which
 # avoids excessive writes to the filesystem. As a result, this legacy installer
 # directory has been orphaned and is now removed as part of this script's
-# `clean_up` function.
-# https://github.com/Dell-S2725HS/DellS2725HS/issues/1357
 readonly LEGACY_INSTALLER_DIR='/opt/DellS2725HS-updater'
 
 # The RAMdisk size is broadly based on the combined size of the following:
@@ -103,7 +101,6 @@ if (( "${AVAILABLE_MEMORY_MIB}" >= "${RAMDISK_SIZE_MIB}" )); then
   # that our goal is to reduce disk writes and not necessarily eliminate them
   # altogether, the possibility of using swap space is an acceptable compromise in
   # exchange for limiting memory usage.
-  # https://github.com/Dell-S2725HS/DellS2725HS/issues/1357
   sudo mkdir "${INSTALLER_DIR}"
   sudo mount \
     --types tmpfs \
@@ -158,15 +155,26 @@ strict_curl() {
   fi
 }
 
-# Download tarball to RAMdisk.
-BUNDLE_FILE="$(mktemp)"
-if ! strict_curl https://gk.tinypilotkvm.com/community/download/latest \
-  > "${BUNDLE_FILE}"; then
+# Use local bundle file instead of downloading
+# TODO: Replace this with the actual path to your local bundle file
+LOCAL_BUNDLE_PATH="/debian-pkg/deb-files/DellS2725HS_1.0.0_arm64.tgz"
+
+if [ ! -f "${LOCAL_BUNDLE_PATH}" ]; then
   set +x
   >&2 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
   >&2 echo
-  >&2 echo 'Failed to download tarball.'
-  >&2 cat "${BUNDLE_FILE}"
+  >&2 echo 'Local bundle file not found at: '${LOCAL_BUNDLE_PATH}
+  >&2 echo 'Please update LOCAL_BUNDLE_PATH to point to your local bundle file'
+  exit 1
+fi
+
+# Copy local file to RAMdisk
+BUNDLE_FILE="$(mktemp)"
+if ! cp "${LOCAL_BUNDLE_PATH}" "${BUNDLE_FILE}"; then
+  set +x
+  >&2 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+  >&2 echo
+  >&2 echo 'Failed to copy local bundle file to RAMdisk.'
   exit 1
 fi
 readonly BUNDLE_FILE
@@ -182,7 +190,6 @@ sudo chown root:root --recursive "${INSTALLER_DIR}"
 
 # Remove the DELL_S2725HS Pro Debian package to avoid version conflicts with
 # the DELL_S2725HS Community Debian package.
-# https://github.com/Dell-S2725HS/DellS2725HS-pro/issues/596
 if [[ "${HAS_PRO_INSTALLED}" -eq 1 ]]; then
   sudo apt-get remove DellS2725HS --yes || true
 fi

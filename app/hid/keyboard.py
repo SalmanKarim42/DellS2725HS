@@ -12,8 +12,6 @@ def send_keystroke(keyboard_path, keystroke):
     # this to prevent the keystroke from incorrectly repeating on the target
     # machine if network latency causes a delay between the keydown and keyup
     # events. However, auto-releasing has the disadvantage of preventing
-    # genuinely long key presses (see
-    # https://github.com/Dell-S2725HS/DellS2725HS/issues/1093).
     if keystroke.keycode:
         release_keys(keyboard_path)
 

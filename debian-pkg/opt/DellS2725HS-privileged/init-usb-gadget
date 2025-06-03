@@ -39,7 +39,6 @@ done
 
 modprobe libcomposite
 
-# Adapted from https://github.com/girst/hardpass-sendHID/blob/master/README.md
 
 cd "${USB_GADGET_PATH}"
 mkdir -p "${USB_DEVICE_DIR}"

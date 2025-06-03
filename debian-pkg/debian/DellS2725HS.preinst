@@ -11,7 +11,6 @@ fi
 
 # Workaround to remove DELL_S2725HS's legacy NGINX config. We can remove this on
 # DELL_S2725HS's next checkpoint release.
-# https://github.com/Dell-S2725HS/DellS2725HS-pro/issues/978
 rm -f \
   /etc/nginx/sites-enabled/DellS2725HS.conf
 

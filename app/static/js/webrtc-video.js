@@ -8,11 +8,6 @@
  * - WebRTC Adapter 8.1.1
  * - Janus Gateway 1.0.0
  *
- * See here for the Janus Gateway API reference:
- * https://janus.conf.meetecho.com/docs/JS.html
- *
- * See here for a high-level overview of the control flow:
- * https://github.com/Dell-S2725HS/ustreamer/blob/master/docs/h264.md
  */
 
 // Suppress ESLint warnings about undefined variables.
@@ -88,7 +83,6 @@ function attachToJanusPlugin() {
      * This callback is triggered when the ICE state for the PeerConnection
      * associated to the handle changes.
      * ICE = Interactive Connectivity Establishment
-     * See https://developer.mozilla.org/en-US/docs/Glossary/ICE
      * @param {string} state - E.g., "connected" or "failed".
      */
     iceState: function (state) {
@@ -177,7 +171,7 @@ function attachToJanusPlugin() {
      * not safe to assume that this callback will be invoked reliably. We have
      * also observed different behavior in Chrome and Firefox.
      *
-     * @param {MediaStreamTrack} track - https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack
+     * @param {MediaStreamTrack} track -
      * @param {string} mid - The Media-ID.
      * @param {boolean} added - Whether the track was added or removed.
      */
@@ -199,7 +193,7 @@ function attachToJanusPlugin() {
 /**
  * @param {string} stunServer
  * @param {number} stunPort
- * @returns {Object[]} - Array of URL objects according to https://developer.mozilla.org/en-US/docs/Web/API/RTCIceServer/urls.
+ * @returns {Object[]} - Array of URL objects according to
  */
 function createIceServerUrls(stunServer, stunPort) {
   // If the server value contains a colon, it’s an IPv6 address. In this case,

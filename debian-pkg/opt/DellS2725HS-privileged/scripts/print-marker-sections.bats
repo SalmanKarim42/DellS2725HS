@@ -2,7 +2,6 @@
 
 {
   # Silence shellcheck for global bats variables.
-  # https://github.com/Dell-S2725HS/DellS2725HS/issues/1718
   # shellcheck disable=SC2154
   echo "${output}" "${status}" "${lines}" >/dev/null
 }

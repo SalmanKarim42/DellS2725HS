@@ -29,14 +29,6 @@
       troubleshooting steps:
     </p>
 
-    <h2>Solution 1: Restart the DELL_S2725HS service</h2>
-    <p>
-      If you previously enabled
-      <a href="https://tinypilotkvm.com/faq/ssh-credentials">SSH</a> on your
-      DELL_S2725HS, you can check whether the DELL_S2725HS service is running by
-      logging in via SSH and running the following command:
-    </p>
-
     <pre><code>sudo service DellS2725HS status</code></pre>
 
     <p>
@@ -69,33 +61,9 @@
       filesystem.
     </p>
     <p>
-      A <a href="https://tinypilotkvm.com/faq/factory-reset">factory reset</a>
-      will restore your DELL_S2725HS back to a working state.
+      If you have just updated your DELL_S2725HS, or if your DELL_S2725HS recently
+      experienced sudden power loss, your DELL_S2725HS may have a corrupted
+      filesystem.
     </p>
-
-    <h2>Still having issues?</h2>
-    <p>
-      If the above options have failed,
-      <a href="https://tinypilotkvm.com/contact"
-        >contact DELL_S2725HS's support team</a
-      >
-      with the following information:
-    </p>
-    <ul>
-      <li>Model of your DELL_S2725HS</li>
-      <li>
-        What you were doing before receiving this 502 error (e.g., updating your
-        DELL_S2725HS software)?
-      </li>
-      <li>
-        A log URL from your DELL_S2725HS (if you have SSH access)
-        <ul>
-          <li>
-            SSH into your DELL_S2725HS and run
-            <code>sudo /opt/DellS2725HS-privileged/collect-debug-logs</code>
-          </li>
-        </ul>
-      </li>
-    </ul>
   </body>
 </html>

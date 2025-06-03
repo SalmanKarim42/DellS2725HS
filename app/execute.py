@@ -19,8 +19,6 @@ class ProcessWithResult(multiprocessing.Process):
     This class is useful for executing a function in a child process and storing
     the result (i.e., the return value and exception raised).
 
-    Inspired by:
-    https://stackoverflow.com/a/33599967/3769045
     """
 
     def __init__(self, *args, **kwargs):
@@ -103,7 +101,5 @@ def background_thread(function, args=None):
         args: Optional `function` arguments as a tuple.
     """
     # Never wait or join a regular thread because it will block the SocketIO
-    # server:
-    # https://github.com/miguelgrinberg/Flask-SocketIO/issues/1264#issuecomment-620653614
     thread = threading.Thread(target=function, args=args or ())
     thread.start()

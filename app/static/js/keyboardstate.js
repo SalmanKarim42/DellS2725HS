@@ -30,7 +30,7 @@ export class KeyboardState {
   }
 
   /**
-   * @param {KeyboardEvent} evt - https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+   * @param {KeyboardEvent} evt - 
    */
   onKeyDown(evt) {
     const canonicalCode = keystrokeToCanonicalCode(evt);
@@ -41,7 +41,7 @@ export class KeyboardState {
   }
 
   /**
-   * @param {KeyboardEvent} evt - https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+   * @param {KeyboardEvent} evt - 
    */
   onKeyUp(evt) {
     const canonicalCode = keystrokeToCanonicalCode(evt);
@@ -54,7 +54,7 @@ export class KeyboardState {
    * keys have been pressed or released while the browser window didn’t have
    * focus. The information in the event object takes precedence over this
    * class's cached state.
-   * @param {KeyboardEvent} evt - https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent
+   * @param {KeyboardEvent} evt - 
    */
   _fixInternalModifierStates(evt) {
     for (const [modifierProp, possibleCodes] of Object.entries(

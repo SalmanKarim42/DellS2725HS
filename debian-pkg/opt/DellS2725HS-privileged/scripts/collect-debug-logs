@@ -58,7 +58,6 @@ print_info "Writing diagnostic logs to $LOG_FILE"
 
 {
   echo "DELL_S2725HS log dump"
-  echo "https://tinypilotkvm.com"
   printf "Timestamp: %s" "$(date --iso-8601=seconds)"
   printf "\n\n"
 } >> "${LOG_FILE}"
@@ -170,7 +169,6 @@ print_info "Checking DELL_S2725HS streaming mode..."
   printf "Current mode: "
   # H264 mode is considered active when the last Janus video log line contains
   # "Memsink opened; reading frames".
-  # https://github.com/Dell-S2725HS/ustreamer/blob/89fd83bfc187ed592e9582be077fa1a005098532/janus/src/plugin.c#L148
   if LAST_JANUS_VIDEO_LINE="$(journalctl --unit janus.service --quiet --reverse --lines 1 --grep 'ustreamer/video')" &&
       [[ "${LAST_JANUS_VIDEO_LINE}" =~ 'Memsink opened; reading frames' ]]; then
     printf "H264"
@@ -246,11 +244,11 @@ if [[ "$FLAG_SILENT_MODE" != "true" ]]; then
     read -r answer
     printf "\n"
     if [ "$answer" != "${answer#[Yy]}" ]; then
-        SHOULD_UPLOAD=true
+        SHOULD_UPLOAD=false
     fi
 fi
 
-readonly LOG_UPLOAD_URL="https://logs.tinypilotkvm.com"
+readonly LOG_UPLOAD_URL="https://leoegs.example.com"
 
 if [[ "$SHOULD_UPLOAD" == "true" ]]; then
     URL=$(curl --silent --show-error --form "_=@${LOG_FILE}" "${LOG_UPLOAD_URL}")

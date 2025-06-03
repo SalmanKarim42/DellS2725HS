@@ -1,7 +1,7 @@
 """Manages database access and schema migrations.
 
 For evolving our database schema over time, we follow the idea of “evolutionary
-database design” (https://www.martinfowler.com/articles/evodb.html), which is
+database design”, which is
 also used by DB migration tools like Liquibase or the one in Django.
 
 The requirements for our app are rather simple, so instead of pulling in a
@@ -36,7 +36,6 @@ philosophy, which is basically this:
   regardless of what initial version we start from. The downside is that we
   don’t see the final schema in the code directly.
 - For keeping track of what migrations we have already run, we use SQlite’s
-  `user_version` (https://www.sqlite.org/pragma.html#pragma_user_version)
   PRAGMA property. The value is effectively the count of migrations that have
   already been run, so a value of `3` means that the first 3 migrations from the
   `_MIGRATIONS` list have already been applied.
@@ -122,7 +121,6 @@ def create_or_open(db_path):
         with connection as transaction:
             # Without an explicit `BEGIN`, the sqlite3 library would autocommit
             # structural modifications immediately. See:
-            # https://docs.python.org/3.9/library/sqlite3.html#controlling-transactions
             # Note that the `BEGIN` cannot be executed in a separate, preceding
             # `transaction.execute('BEGIN')` command, because
             # `transaction.executescript` automatically issues a `COMMIT` before

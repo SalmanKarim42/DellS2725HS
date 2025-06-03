@@ -330,7 +330,6 @@
           const screen = this._getCurrentScreenElement();
           const windowRatio = window.innerWidth / window.innerHeight;
           // Get the content dimensions of either the video or image element.
-          // https://developer.mozilla.org/en-US/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements#whats_the_size_of_the_displayed_content
           const screenRatio = screen.clientWidth / screen.clientHeight;
           if (screenRatio > windowRatio) {
             this.fullscreenIsFullHeight = false;
@@ -390,7 +389,7 @@
         /**
          * Adds a track to the WebRTC media stream.
          *
-         * @param {MediaStreamTrack} mediaStreamTrack - https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack
+         * @param {MediaStreamTrack} mediaStreamTrack -
          */
         async addWebrtcStreamTrack(mediaStreamTrack) {
           const video = this._elements.video;
@@ -416,14 +415,13 @@
 
           // Note: If the specified track is already in the stream's track set,
           // the addTrack method has no effect.
-          // https://developer.mozilla.org/en-US/docs/Web/API/MediaStream/addTrack
           stream.addTrack(mediaStreamTrack);
         }
 
         /**
          * Removes a track from the WebRTC media stream.
          *
-         * @param {MediaStreamTrack} mediaStreamTrack - https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrack
+         * @param {MediaStreamTrack} mediaStreamTrack - 
          */
         removeWebrtcStreamTrack(mediaStreamTrack) {
           const video = this._elements.video;

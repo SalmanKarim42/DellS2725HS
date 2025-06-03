@@ -28,9 +28,7 @@ export class TouchToMouseAdapter {
    */
 
   /**
-   * @param {TouchEvent} evt - See:
-   *     - https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent
-   *     - https://developer.mozilla.org/en-US/docs/Web/API/Element/touchstart_event
+   * @param {TouchEvent} evt -
    * @returns {SyntheticMouseEvent}
    */
   fromTouchStart(evt) {
@@ -63,10 +61,7 @@ export class TouchToMouseAdapter {
   }
 
   /**
-   * @param {TouchEvent} evt - See:
-   *     - https://developer.mozilla.org/en-US/docs/Web/API/TouchEvent
-   *     - https://developer.mozilla.org/en-US/docs/Web/API/Element/touchend_event
-   *     - https://developer.mozilla.org/en-US/docs/Web/API/Element/touchcancel_event
+   * @param {TouchEvent} evt - 
    * @returns {SyntheticMouseEvent}
    */
   fromTouchEndOrCancel(evt) {

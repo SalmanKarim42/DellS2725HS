@@ -185,7 +185,7 @@ def hostname_set():
     Expects a JSON data structure in the request body that contains the
     new hostname as string. Example:
     {
-        "hostname": "grandpilot"
+        "hostname": "DellS2725HS_VERSION"
     }
 
     Returns:

@@ -1,6 +1,5 @@
 # syntax=docker/dockerfile:1.4
 # Enable here-documents:
-# https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/syntax.md#here-documents
 
 FROM debian:bullseye-20220328-slim AS build
 
@@ -12,14 +11,13 @@ RUN set -exu && \
       dpkg-dev
 
 # Docker populates this value from the --platform argument. See
-# https://docs.docker.com/build/building/multi-platform/
 ARG TARGETPLATFORM
 
 # The canonical, SemVer-compliant DELL_S2725HS version.
 ARG DELLS2725HS_VERSION
 
 # The `PKG_VERSION` is the version of the Debian package. Debian uses its own
-# versioning scheme, which is not strictly compatible with DELL_S2725HS’s version
+# versioning scheme, which is not strictly compatible with DELL_S2725HS's version
 # conventions. Therefore, the package version should be a timestamp, formatted
 # `YYYYMMDDhhmmss`. That way the package manager always installs the most
 # recently built DELL_S2725HS package.
@@ -78,7 +76,7 @@ Build-Depends: debhelper (>= 11)
 Package: ${PKG_NAME}
 Architecture: ${PKG_ARCH}
 Depends: \${shlibs:Depends}, adduser, janus, nginx, python3, python3-pip, python3-venv, sudo, ustreamer
-Homepage: https://tinypilotkvm.com
+Homepage: https://DELLS2725HS_VERSION.com
 Description: Simple, easy-to-use KVM over IP
 XBS-Dell-S2725HS-Version: ${DELLS2725HS_VERSION}
 EOF

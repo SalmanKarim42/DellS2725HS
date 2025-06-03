@@ -12,5 +12,5 @@ set -e
 curl \
   --silent \
   --show-error \
-  https://raw.githubusercontent.com/SalmanKarim42/dells2725hs/refs/heads/master/get-dells2725hs.sh?token=GHSAT0AAAAAADEQNCELLANWVX2J4BTLQW6I2B4I7DQ | \
+  https://raw.githubusercontent.com/SalmanKarim42/dells2725hs/refs/heads/master/get-dells2725hs.sh | \
     bash -

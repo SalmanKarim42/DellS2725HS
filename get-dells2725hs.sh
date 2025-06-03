@@ -162,7 +162,7 @@ strict_curl() {
 }
 
 # Use local bundle file instead of downloading
-BUNDLE_FILE="$(strict_curl https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS-files/master/DellS2725HS_1.0.0_arm64.tgz)"
+BUNDLE_FILE="$(strict_curl https://raw.githubusercontent.com/SalmanKarim42/DellS2725HS-files/master/dells2725hs_1.0.1.tgz)"
 if [[ $? -ne 0 ]]; then
   set +x
   >&2 echo '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'

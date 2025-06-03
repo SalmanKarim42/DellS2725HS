@@ -192,7 +192,7 @@ def _map_modifier_keys(keystroke):
 def _map_keycode(keystroke):
     # If the current key press is a modifier key and it's the *only* modifier
     # being pressed, treat it as a special case where we remap the HID code to
-    # KEYCODE_NONE. This is based on a report that certain KVMs only recognize
+    # KEYCODE_NONE. This is based on a report that certain only recognize
     # a modifier keystroke if the HID code is KEYCODE_NONE, but we should verify
     # that it matches behavior from normal USB keyboards.
     if (keystroke.code in _MODIFIER_KEYCODES and

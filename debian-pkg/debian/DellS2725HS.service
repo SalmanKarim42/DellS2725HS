@@ -1,5 +1,5 @@
 [Unit]
-Description=DELL_S2725HS - RPi-based virtual KVM
+Description=DELL_S2725HS - Display
 BindsTo=nginx.service
 After=syslog.target network.target nginx.service
 StartLimitIntervalSec=0

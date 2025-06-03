@@ -77,7 +77,7 @@ Package: ${PKG_NAME}
 Architecture: ${PKG_ARCH}
 Depends: \${shlibs:Depends}, adduser, janus, nginx, python3, python3-pip, python3-venv, sudo, ustreamer
 Homepage: https://DELLS2725HS_VERSION.com
-Description: Simple, easy-to-use KVM over IP
+Description: Simple, easy-to-use Display
 XBS-Dell-S2725HS-Version: ${DELLS2725HS_VERSION}
 EOF
 

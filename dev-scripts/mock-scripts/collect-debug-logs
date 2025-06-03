@@ -19,7 +19,7 @@ Mar 01 10:06:47 DellS2725HS python[573]: Checking for voltage issues...
 
 DELL_S2725HS configuration
 [Unit]
-Description=DELL_S2725HS - RPi-based virtual KVM
+Description=DELL_S2725HS - 
 After=syslog.target network.target
 
 [Service]
@@ -201,17 +201,17 @@ Mar 01 10:04:37 DellS2725HS python[573]: [2021-03-01 10:04:37,054] INFO in _inte
 Mar 01 10:04:37 DellS2725HS python[573]: [2021-03-01 10:04:37,975] INFO in main: Starting app
 Mar 01 10:04:39 DellS2725HS python[573]: [2021-03-01 10:04:39,535] INFO in socket_api: Client connected
 Mar 01 10:04:40 DellS2725HS python[573]: [2021-03-01 10:04:40,205] INFO in socket_api: Client connected
-Mar 01 10:04:55 DellS2725HS systemd[1]: Stopping DELL_S2725HS - RPi-based virtual KVM...
+Mar 01 10:04:55 DellS2725HS systemd[1]: Stopping DELL_S2725HS - Display...
 Mar 01 10:04:55 DellS2725HS systemd[1]: DellS2725HS.service: Succeeded.
-Mar 01 10:04:55 DellS2725HS systemd[1]: Stopped DELL_S2725HS - RPi-based virtual KVM.
-Mar 01 10:04:55 DellS2725HS systemd[1]: Started DELL_S2725HS - RPi-based virtual KVM.
+Mar 01 10:04:55 DellS2725HS systemd[1]: Stopped DELL_S2725HS - Display.
+Mar 01 10:04:55 DellS2725HS systemd[1]: Started DELL_S2725HS - Display.
 Mar 01 10:04:56 DellS2725HS python[7838]: [2021-03-01 10:04:56,344] INFO in main: Starting app
 Mar 01 10:04:56 DellS2725HS python[7838]: [2021-03-01 10:04:56,393] INFO in _internal:  * Restarting with stat
-Mar 01 10:04:57 DellS2725HS systemd[1]: Stopping DELL_S2725HS - RPi-based virtual KVM...
+Mar 01 10:04:57 DellS2725HS systemd[1]: Stopping DELL_S2725HS - Display...
 Mar 01 10:04:57 DellS2725HS systemd[1]: DellS2725HS.service: Succeeded.
-Mar 01 10:04:57 DellS2725HS systemd[1]: Stopped DELL_S2725HS - RPi-based virtual KVM.
+Mar 01 10:04:57 DellS2725HS systemd[1]: Stopped DELL_S2725HS - Display.
 -- Reboot --
-Mar 01 10:05:14 DellS2725HS systemd[1]: Started DELL_S2725HS - RPi-based virtual KVM.
+Mar 01 10:05:14 DellS2725HS systemd[1]: Started DELL_S2725HS - Display.
 Mar 01 10:05:16 DellS2725HS python[573]: [2021-03-01 10:05:16,336] INFO in main: Starting app
 Mar 01 10:05:16 DellS2725HS python[573]: [2021-03-01 10:05:16,402] INFO in _internal:  * Restarting with stat
 Mar 01 10:05:17 DellS2725HS python[573]: [2021-03-01 10:05:17,303] INFO in main: Starting app

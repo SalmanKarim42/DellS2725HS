@@ -62,9 +62,6 @@
       <overlay-panel id="debug-overlay">
         <debug-dialog id="debug-dialog"></debug-dialog>
       </overlay-panel>
-      <overlay-panel id="about-overlay">
-        <about-dialog id="about-dialog"></about-dialog>
-      </overlay-panel>
       <overlay-panel id="video-settings-overlay">
         <video-settings-dialog
           id="video-settings-dialog"
@@ -88,6 +85,38 @@
     <script src="/third-party/socket.io/4.7.1/socket.io.min.js"></script>
     <script type="module" src="/js/app.js"></script>
 
+    <script type="module">
+      // Add keyboard shortcut to toggle menu and footer bars
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.ctrlKey &&
+          event.shiftKey &&
+          event.altKey &&
+          event.key.toLowerCase() === "q"
+        ) {
+          const headerBar = document.querySelector(".header-bar");
+          const footerBar = document.querySelector(".footer-bar");
+          const remoteScreen = document.getElementById("remote-screen");
+
+          // Toggle visibility of bars
+          const isVisible = headerBar.style.display !== "none";
+          headerBar.style.display = isVisible ? "none" : "block";
+          footerBar.style.display = isVisible ? "none" : "block";
+
+          // Adjust remote screen padding
+          if (isVisible) {
+            remoteScreen.style.paddingTop = "var(--bar-padding)";
+            remoteScreen.style.paddingBottom = "var(--bar-padding)";
+          } else {
+            remoteScreen.style.paddingTop = "";
+            remoteScreen.style.paddingBottom = "";
+          }
+
+          event.preventDefault();
+        }
+      });
+    </script>
+
     {% if use_webrtc_remote_screen %}
     <script
       type="text/javascript"
@@ -100,11 +129,11 @@
     {% if janus_stun_server and janus_stun_port %}
     <script>
       window.DELLS2725HS_JANUS_STUN_SERVER = "{{ janus_stun_server }}";
-      // ESLint wouldn’t be able to parse the following line if there was just
-      // the “naked” Jinja2 template expression on the right-hand side of the
+      // ESLint wouldn't be able to parse the following line if there was just
+      // the "naked" Jinja2 template expression on the right-hand side of the
       // assignment. Hence, we have to wrap the value into a string and call
       // `parseInt` to obtain the original value.
-      // It wouldn’t be possible here to use an ESLint directive, since the
+      // It wouldn't be possible here to use an ESLint directive, since the
       // error already happens at parsing stage.
       window.DELLS2725HS_JANUS_STUN_PORT = parseInt("{{ janus_stun_port }}");
     </script>

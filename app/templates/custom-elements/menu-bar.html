@@ -31,14 +31,14 @@
 
     li > ul {
       /* For the fade-out duration, we need to find a good compromise between
-         keeping the menu open long enough so that it doesn’t immediately
+         keeping the menu open long enough so that it doesn't immediately
          disappear when the user leaves the menu area for a split second
-         (e.g., if they accidentally “overshoot” with their cursor.) But it
-         also shouldn’t be so long that the menu feels sluggish or sticky. */
+         (e.g., if they accidentally "overshoot" with their cursor.) But it
+         also shouldn't be so long that the menu feels sluggish or sticky. */
       transition: 300ms;
       /* For the fade-out timing, slow down the transition in the initial
          moment when the cursor leaves the menu area, and only make the
-         fade-out kick in after that initial “threshold”. Otherwise, if the
+         fade-out kick in after that initial "threshold". Otherwise, if the
          user would accidentally leave the menu area for a split second, the
          menu would _immediately_ start to disappear, which is distracting. */
       transition-timing-function: cubic-bezier(0.5, 0, 1, 0.25);
@@ -181,7 +181,7 @@
       color: var(--brand-logo-accent-color);
       border: 1px solid var(--brand-logo-accent-color);
       border-radius: 0.8em;
-      pointer-events: none; /* “Click-through” to underlying menu item */
+      pointer-events: none; /* "Click-through" to underlying menu item */
     }
 
     .external-link:after {
@@ -204,15 +204,10 @@
     id="menu"
     role="menubar"
   >
-    <!-- The “System” menu is used for managing the DELL_S2725HS device itself. -->
+    <!-- The "System" menu is used for managing the DELL_S2725HS device itself. -->
     <li class="group" role="presentation">
       <a role="menuitem">System</a>
       <ul class="items" role="group">
-        <li class="item pro-badge" role="presentation">
-          <a data-onclick-event="mass-storage-dialog-requested" role="menuitem"
-            >Virtual Media</a
-          >
-        </li>
         <li class="item" role="presentation">
           <a data-onclick-event="update-dialog-requested" role="menuitem"
             >Update</a
@@ -231,11 +226,6 @@
             <li class="item" role="presentation">
               <a data-onclick-event="wifi-dialog-requested" role="menuitem"
                 >Wi-Fi</a
-              >
-            </li>
-            <li class="item pro-badge" role="presentation">
-              <a data-onclick-event="static-ip-dialog-requested" role="menuitem"
-                >Static IP</a
               >
             </li>
             <li class="item" role="presentation">
@@ -267,7 +257,7 @@
       </ul>
     </li>
 
-    <!-- The “Actions” menu contains operations which are carried out against
+    <!-- The "Actions" menu contains operations which are carried out against
          the connected target machine. -->
     <li class="group" role="presentation">
       <a role="menuitem">Actions</a>
@@ -280,11 +270,7 @@
         <li class="item" role="presentation">
           <a id="screenshot-btn" href="/snapshot" role="menuitem">Screenshot</a>
         </li>
-        <li class="item pro-badge" role="presentation">
-          <a data-onclick-event="wake-on-lan-dialog-requested" role="menuitem"
-            >Wake on LAN</a
-          >
-        </li>
+
         <li class="item subgroup" role="presentation">
           <a role="menuitem">Keyboard Shortcuts</a>
           <ul class="items" role="group">
@@ -315,7 +301,7 @@
       </ul>
     </li>
 
-    <!-- The “View” menu contains UI-related settings, which are local to the
+    <!-- The "View" menu contains UI-related settings, which are local to the
          requesting client. -->
     <li class="group" role="presentation">
       <a role="menuitem">View</a>
@@ -348,18 +334,6 @@
         </li>
       </ul>
     </li>
-
-    <!-- The ”Help” menu contains miscellaneous, subsidiary links and info. -->
-    <li class="group" role="presentation">
-      <a role="menuitem">Help</a>
-      <ul class="items" role="group">
-        <li class="item" role="presentation">
-          <a data-onclick-event="about-dialog-requested" role="menuitem"
-            >About</a
-          >
-        </li>
-      </ul>
-    </li>
   </ul>
 </template>
 
@@ -382,7 +356,7 @@
             this._undoInitialFlickerPrevention
           );
 
-          // Handle “simple”/standard menu items that just emit a custom event
+          // Handle "simple"/standard menu items that just emit a custom event
           // without further ado.
           this.shadowRoot
             .querySelectorAll("[data-onclick-event]")
@@ -473,6 +447,11 @@
           this.shadowRoot
             .getElementById("menu")
             .classList.remove("prevent-flickering-on-page-load");
+        }
+
+        toggleVisibility() {
+          this._isVisible = !this._isVisible;
+          this.style.display = this._isVisible ? "flex" : "none";
         }
       }
     );

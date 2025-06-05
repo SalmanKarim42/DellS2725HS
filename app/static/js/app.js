@@ -104,7 +104,7 @@ function onSocketDisconnect() {
 }
 
 /**
- * @param {KeyboardEvent} evt - 
+ * @param {KeyboardEvent} evt -
  */
 function onKeyDown(evt) {
   if (overlayTracker.hasOverlays()) {
@@ -193,7 +193,7 @@ function sendMouseEvent(
 }
 
 /**
- * @param {KeyboardEvent} evt - 
+ * @param {KeyboardEvent} evt -
  */
 function onKeyUp(evt) {
   const canonicalCode = keystrokeToCanonicalCode(evt);
@@ -334,13 +334,7 @@ menuBar.addEventListener("fullscreen-requested", () => {
 menuBar.addEventListener("debug-logs-dialog-requested", () => {
   document.getElementById("debug-overlay").show();
 });
-menuBar.addEventListener("about-dialog-requested", () => {
-  document.getElementById("about-overlay").show();
-});
 menuBar.addEventListener("mass-storage-dialog-requested", () => {
-  document.getElementById("feature-pro-overlay").show();
-});
-menuBar.addEventListener("wake-on-lan-dialog-requested", () => {
   document.getElementById("feature-pro-overlay").show();
 });
 menuBar.addEventListener("static-ip-dialog-requested", () => {

@@ -3,16 +3,16 @@
 
 :root {
   --brand-hue-metallic: 200;
-  --brand-hue-blue: 230;
+  --brand-hue-blue: 199;
   --brand-hue-yellow: 35;
   --brand-hue-orange: 28;
   --brand-hue-red: 5;
   --brand-hue-green: 149;
   --brand-hue-white: 180;
 
-  --brand-metallic-dark: hsl(var(--brand-hue-white), 40%, 40%);
-  --brand-metallic-medium: hsl(var(--brand-hue-metallic), 18%, 45%);
-  --brand-metallic-light: hsl(var(--brand-hue-white), 100%, 100%);
+  --brand-metallic-dark: hsl(var(--brand-hue-blue), 100%, 38%);
+  --brand-metallic-medium: hsl(var(--brand-hue-blue), 100%, 38%);
+  --brand-metallic-light: hsl(var(--brand-hue-blue), 100%, 38%);
   --brand-metallic-bright: hsl(var(--brand-hue-metallic), 18%, 65%);
   --brand-metallic-brighter: hsl(var(--brand-hue-metallic), 18%, 75%);
 

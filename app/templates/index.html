@@ -86,6 +86,27 @@
     <script type="module" src="/js/app.js"></script>
 
     <script type="module">
+      const togglePreview = () => {
+        const headerBar = document.querySelector(".header-bar");
+        const footerBar = document.querySelector(".footer-bar");
+        const remoteScreen = document.getElementById("remote-screen");
+
+        // Toggle visibility of bars
+        const isVisible = headerBar.style.display !== "none";
+        headerBar.style.display = isVisible ? "none" : "block";
+        footerBar.style.display = isVisible ? "none" : "block";
+
+        // Adjust remote screen padding
+        if (isVisible) {
+          remoteScreen.style.paddingTop = "var(--bar-padding)";
+          remoteScreen.style.paddingBottom = "var(--bar-padding)";
+        } else {
+          remoteScreen.style.paddingTop = "";
+          remoteScreen.style.paddingBottom = "";
+        }
+      };
+      togglePreview();
+
       // Add keyboard shortcut to toggle menu and footer bars
       document.addEventListener("keydown", (event) => {
         if (
@@ -94,24 +115,7 @@
           event.altKey &&
           event.key.toLowerCase() === "q"
         ) {
-          const headerBar = document.querySelector(".header-bar");
-          const footerBar = document.querySelector(".footer-bar");
-          const remoteScreen = document.getElementById("remote-screen");
-
-          // Toggle visibility of bars
-          const isVisible = headerBar.style.display !== "none";
-          headerBar.style.display = isVisible ? "none" : "block";
-          footerBar.style.display = isVisible ? "none" : "block";
-
-          // Adjust remote screen padding
-          if (isVisible) {
-            remoteScreen.style.paddingTop = "var(--bar-padding)";
-            remoteScreen.style.paddingBottom = "var(--bar-padding)";
-          } else {
-            remoteScreen.style.paddingTop = "";
-            remoteScreen.style.paddingBottom = "";
-          }
-
+          togglePreview();
           event.preventDefault();
         }
       });

@@ -68,7 +68,7 @@ readonly BUNDLE_FILENAME="dells2725hs-${DELLS2725HS_VARIANT}-${TIMESTAMP}-${DELL
 # upstream and verify that the diff is the same as before.
 wget \
   --directory-prefix="${BUNDLE_DIR}" \
-  http://ftp.us.debian.org/debian/pool/main/j/janus/janus_1.0.1-1~bpo11+1_armhf.deb
+    http://deb.debian.org/debian/pool/main/j/janus/janus_1.1.2-3.1_armhf.deb
 
 # Download uStreamer Debian package.
 wget \

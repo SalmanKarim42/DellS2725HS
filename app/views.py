@@ -55,7 +55,7 @@ def dedicated_window_placeholder_get():
 @views_blueprint.route('/stream', methods=['GET'])
 def stream_get():
     if flask.current_app.debug:
-        return flask.send_file('testdata/test-remote-screen.jpg')
+        return flask.send_file('testdata/test-remote-screen.png')
     return flask.abort(404)
 
 
